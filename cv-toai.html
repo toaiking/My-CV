@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Senior Pattern Maker & Digital Fashion Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,700;1,300;1,500&family=Syne:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script>
+/* ═══════════════════════════════════════════════════════════════
+   ⚙️  KHU VỰC CÀI ĐẶT — CHỈNH SỬA TẠI ĐÂY
+   SETTINGS ZONE — EDIT EVERYTHING HERE
+═══════════════════════════════════════════════════════════════ */
+const CONFIG = {
+
+  /* ── NGÔN NGỮ MẶC ĐỊNH / DEFAULT LANGUAGE ──────────────────
+     "vi" = Tiếng Việt   |   "en" = English                    */
+  defaultLang: "en",
+
+  /* ── THÔNG TIN CÁ NHÂN / PERSONAL INFO ─────────────────── */
+  personal: {
+    firstName:  "Xuan Toai",
+    lastName:   "Cao",
+    titleVI:    "Senior Pattern Maker · 3D Virtual Prototyping · Digital Fashion",
+    titleEN:    "Senior Pattern Maker · 3D Virtual Prototyping · Digital Fashion",
+    locationVI: "TP. Hồ Chí Minh, Việt Nam",
+    locationEN: "Ho Chi Minh City, Vietnam",
+    email:      "toaiking@gmail.com",
+    phone:      "+84 346722755",
+    linkedin:   "www.linkedin.com/in/cao-xuân-toại-87183315b",
+    portfolio:  "portfolio.toai.design",
+    status:     { vi: "Sẵn sàng cơ hội mới · 2025", en: "Open to Opportunities · 2025" },
+  },
+
+  /* ── ẢNH PORTFOLIO / PORTFOLIO IMAGES ──────────────────────
+     Điền URL ảnh hoặc đường dẫn tương đối. Để "" = hiện ô trống.
+     Fill image URL or relative path. Leave "" = empty slot.    */
+  portfolio: [
+    { url: "https://i.postimg.cc/GtW2GXPy/FB-IMG-1775466466542.jpg", captionVI: "Sản phẩm đã thực hiện",    captionEN: "Completed Work"    },
+    { url: "https://i.postimg.cc/q7LJbJrZ/3DTRIUMPH_1_1(4).png", captionVI: "CLO 3D Simulation",    captionEN: "CLO 3D Simulation"    },
+    { url: "", captionVI: "Technical Flat Sketch",captionEN: "Technical Flat Sketch" },
+    { url: "https://i.postimg.cc/LXBf2k9c/careicon_Asset_2.png", captionVI: "AI Fashion Concept",   captionEN: "AI Fashion Concept"   },
+  ],
+
+  /* ── SỐ LIỆU NỔI BẬT / KEY METRICS ───────────────────────── */
+  metrics: [
+    { num: "8+",  labelVI: "Năm kinh nghiệm", labelEN: "Years Experience"   },
+    { num: "87%", labelVI: "Tỷ lệ duyệt mẫu", labelEN: "First-Fit Rate"     },
+    { num: "20+",labelVI: "Thương hiệu & Buyer Quốc tế", labelEN: "International Brands & Buyers"   },
+    { num: "4",   labelVI: "3D Tools thành thạo", labelEN: "3D Tools Mastered"},
+  ],
+
+  /* ── TÓM TẮT / SUMMARY ──────────────────────────────────── */
+  summary: {
+    vi: `<strong>Chuyên gia kỹ thuật rập</strong> với hơn 8 năm kinh nghiệm chuyển hóa ý tưởng thiết kế thành rập kỹ thuật production-ready — vải dệt thoi, dệt kim và các kết cấu nâng cao: <strong>Seamless, Bonding, Outer</strong>. Kết nối kỹ thuật truyền thống với công nghệ số thế hệ mới — từ <strong>Gerber AccuMark</strong> và <strong>CLO 3D</strong> đến AI-assisted design — rút ngắn chu trình sampling, tăng tốc phê duyệt và giảm chi phí đáng kể mỗi mùa. Được tin dùng bởi buyer trong nước và quốc tế trên ba category <strong>Kids, Men's và Women's</strong>.`,
+    en: `<strong>Pattern engineering specialist</strong> with 8+ years transforming design concepts into production-ready technical patterns across woven, knit, and advanced constructions — <strong>Seamless, Bonding, Outer</strong>. Bridges traditional craft precision with next-generation digital tools: from <strong>Gerber AccuMark</strong> and <strong>CLO 3D</strong> to AI-assisted design — compressing sample cycles, accelerating approvals, and delivering measurable cost savings each season. Trusted by domestic and international buyers across <strong>Kids, Men's, and Women's</strong> categories.`,
+  },
+
+  /* ── NHÓM KỸ NĂNG / SKILL GROUPS ───────────────────────── */
+  skills: [
+    {
+      nameVI: "Kỹ thuật rập", nameEN: "Pattern Engineering",
+      tags: [
+        { label: "Flat Pattern Making", hot: true  },
+        { label: "Pattern Grading",     hot: true  },
+        { label: "Fit Analysis",        hot: true  },
+        { label: "Seamless",            hot: false },
+        { label: "Bonding",             hot: false },
+        { label: "Outer",               hot: false },
+        { label: "Ultimate",            hot: false },
+        { label: "Block Development",   hot: false },
+      ]
+    },
+    {
+      nameVI: "3D Virtual Prototyping", nameEN: "3D Virtual Prototyping",
+      tags: [
+        { label: "CLO 3D",             hot: true  },
+        { label: "Browzwear",          hot: true  },
+        { label: "Marvelous Designer", hot: false },
+        { label: "Garment Simulation", hot: false },
+        { label: "Virtual Fitting",    hot: false },
+        { label: "3D Rendering",       hot: false },
+      ]
+    },
+    {
+      nameVI: "CAD & Thiết kế", nameEN: "CAD & Design",
+      tags: [
+        { label: "Gerber AccuMark",  hot: true  },
+        { label: "Adobe Illustrator",hot: false },
+        { label: "Photoshop",        hot: false },
+        { label: "Technical Drawing",hot: false },
+        { label: "Tech Pack / BOM",  hot: false },
+      ]
+    },
+    {
+      nameVI: "Digital Fashion & AI", nameEN: "Digital Fashion & AI",
+      tags: [
+        { label: "Midjourney",       hot: true  },
+        { label: "Stable Diffusion", hot: true  },
+        { label: "AI Concept Gen",   hot: false },
+        { label: "Digital Textile",  hot: false },
+        { label: "Visual Basic",     hot: false },
+      ]
+    },
+  ],
+
+  /* ── KINH NGHIỆM / EXPERIENCE ──────────────────────────── */
+  experience: [
+    {
+      roleVI:    "Senior Pattern Maker",
+      roleEN:    "Senior Pattern Maker",
+      company:   "Công ty A — điền tên thật",
+      locationVI:"TP. Hồ Chí Minh · Outerwear & Activewear",
+      locationEN:"Ho Chi Minh City · Outerwear & Activewear",
+      period:    "2021 – Nay / Present",
+      bulletsVI: [
+        "Phát triển <strong>rập kỹ thuật Outer, Seamless và Bonding</strong> — đạt tỷ lệ duyệt mẫu lần đầu <kpi>↑ 87%</kpi>, giảm vòng chỉnh sửa từ 3 xuống còn 1,4 lần.",
+        "Triển khai <strong>CLO 3D virtual prototyping</strong> toàn bộ dòng outerwear — cắt giảm <kpi>~45%</kpi> mẫu vật lý/mùa, tiết kiệm ước tính <kpig>~$28.000/năm</kpig> chi phí sampling.",
+        "Quản lý <strong>grading & size-set validation</strong> 120+ styles trên 6 cỡ — không có QC escalation ở giai đoạn sản xuất đại trà.",
+        "Phối hợp Design & Merchandising chuyển concept thành spec kỹ thuật, rút ngắn <kpi>35%</kpi> chu kỳ chỉnh sửa nội bộ.",
+        "Đào tạo 3 junior pattern maker về Gerber AccuMark và 3D simulation — nâng năng suất từ 8 lên <kpi>11 styles/tuần</kpi>.",
+      ],
+      bulletsEN: [
+        "Engineered technical patterns for <strong>Outer, Seamless, and Bonding</strong> constructions — achieving <kpi>87%</kpi> first-sample fit approval rate, reducing correction rounds from 3 to 1.4.",
+        "Implemented <strong>CLO 3D virtual prototyping</strong> across the outerwear line — reducing physical samples by <kpi>~45%</kpi> per season, saving an estimated <kpig>~$28,000/year</kpig> in sampling costs.",
+        "Managed <strong>grading & size-set validation</strong> for 120+ styles across 6 size runs with zero QC escalations at bulk production.",
+        "Collaborated with Design & Merchandising to convert concepts into tech specs, cutting internal revision cycles by <kpi>35%</kpi>.",
+        "Trained 3 junior pattern makers in Gerber AccuMark and 3D simulation — improving team output from 8 to <kpi>11 styles/week</kpi>.",
+      ],
+    },
+    {
+      roleVI:    "Pattern Maker",
+      roleEN:    "Pattern Maker",
+      company:   "Công ty B — điền tên thật",
+      locationVI:"TP. Hồ Chí Minh · Kids, Women's & Men's Export Apparel",
+      locationEN:"Ho Chi Minh City · Kids, Women's & Men's Export Apparel",
+      period:    "2017 – 2021",
+      bulletsVI: [
+        "Thiết kế rập cho <strong>3 category: Kids, Women's, Men's</strong> — vải dệt thoi và dệt kim — grade point nhất quán trên 8 cỡ mỗi style.",
+        "Rút ngắn thời gian hoàn thiện rập từ <kpi>5 ngày → 2 ngày</kpi> bằng chuẩn hóa tài liệu fit comment và thư viện block template nội bộ.",
+        "Ứng dụng <strong>Browzwear</strong> duyệt fit từ xa với buyer nước ngoài — loại bỏ <kpi>4 chuyến công tác/năm</kpi>, tiết kiệm ~$12.000 chi phí.",
+        "Hoàn thiện <strong>tech pack & technical drawing</strong> bằng Adobe Illustrator với độ chính xác số đo <kpi>94%</kpi> trên mẫu đầu tiên.",
+        "Giao đầy đủ file cho <strong>200+ styles</strong> trên 3 mùa liên tiếp — không có delay giao nộp cho nhà máy.",
+      ],
+      bulletsEN: [
+        "Developed patterns for <strong>Kids, Women's, and Men's categories</strong> in woven and knit — consistent grade points across 8 size ranges per style.",
+        "Reduced pattern completion time from <kpi>5 days → 2 days</kpi> by standardizing fit comment documentation and internal block template library.",
+        "Adopted <strong>Browzwear</strong> for remote buyer fit reviews — eliminating <kpi>4 overseas trips/year</kpi>, saving ~$12,000 in travel costs.",
+        "Delivered <strong>tech packs & technical drawings</strong> in Adobe Illustrator with <kpi>94%</kpi> measurement accuracy on first-fit samples.",
+        "Delivered <strong>200+ styles</strong> across 3 consecutive seasons with zero file delivery delays to manufacturers.",
+      ],
+    },
+    {
+      roleVI:    "Junior Pattern Maker / Design Assistant",
+      roleEN:    "Junior Pattern Maker / Design Assistant",
+      company:   "Công ty C — điền tên thật",
+      locationVI:"TP. Hồ Chí Minh · Ready-to-Wear",
+      locationEN:"Ho Chi Minh City · Ready-to-Wear",
+      period:    "2014 – 2017",
+      bulletsVI: [
+        "Phát triển block và điều chỉnh rập trên <strong>Gerber AccuMark</strong> cho vải dệt thoi và dệt kim, xây dựng nền tảng CAD vững chắc.",
+        "Tạo <strong>flat sketches & technical illustrations</strong> bằng Adobe Illustrator và Photoshop phục vụ presentations với buyer nội địa.",
+        "Phụ trách grading độc lập <strong>2 dòng sản phẩm</strong> sau 18 tháng — <kpi>6 tháng sớm hơn</kpi> lộ trình đề ra.",
+      ],
+      bulletsEN: [
+        "Developed blocks and adapted patterns in <strong>Gerber AccuMark</strong> for woven and knit ready-to-wear, building a solid CAD foundation.",
+        "Created <strong>flat sketches & technical illustrations</strong> in Adobe Illustrator and Photoshop for domestic buyer presentations.",
+        "Took independent grading ownership of <strong>2 product lines</strong> at 18 months — <kpi>6 months ahead</kpi> of the planned timeline.",
+      ],
+    },
+  ],
+
+  /* ── DỰ ÁN TIÊU BIỂU / KEY PROJECTS ───────────────────── */
+  projects: [
+    {
+      badgeVI: "3D Digital Fashion",   badgeEN: "3D Digital Fashion",
+      nameVI:  "Virtual Sample Initiative",
+      nameEN:  "Virtual Sample Initiative",
+      descVI:  "Xây dựng quy trình virtual sampling end-to-end bằng CLO 3D & Browzwear — buyer review fit 100% qua file 3D trước khi làm mẫu vật lý.",
+      descEN:  "Built an end-to-end virtual sampling workflow using CLO 3D & Browzwear — buyers review 100% of fits digitally before physical sampling.",
+      resultVI:"→ −45% mẫu vật lý · −3 tuần/mùa",
+      resultEN:"→ −45% physical samples · −3 weeks/season",
+    },
+    {
+      badgeVI: "AI-Assisted Design",  badgeEN: "AI-Assisted Design",
+      nameVI:  "AI Concept Pipeline",
+      nameEN:  "AI Concept Pipeline",
+      descVI:  "Kết hợp Midjourney + Stable Diffusion + Illustrator thay thế quy trình mood board thủ công, tạo concept board trình bày buyer chuyên nghiệp.",
+      descEN:  "Combined Midjourney + Stable Diffusion + Illustrator to fully replace manual mood board workflows for buyer presentations.",
+      resultVI:"→ 3 ngày → 6 giờ chuẩn bị presentation",
+      resultEN:"→ 3 days → 6 hours for presentation prep",
+    },
+    {
+      badgeVI: "Pattern Engineering", badgeEN: "Pattern Engineering",
+      nameVI:  "Seamless & Bonding Block Library",
+      nameEN:  "Seamless & Bonding Block Library",
+      descVI:  "Xây dựng bộ block template chuẩn cho bonded và seamless outerwear — tài liệu nội bộ dùng chung cho toàn team R&D.",
+      descEN:  "Developed standardized block templates for bonded and seamless outerwear — adopted as internal R&D team standard.",
+      resultVI:"→ −40% thời gian phát triển style mới",
+      resultEN:"→ −40% new style development time",
+    },
+    {
+      badgeVI: "Process Automation",  badgeEN: "Process Automation",
+      nameVI:  "AccuMark Grading Macros",
+      nameEN:  "AccuMark Grading Macros",
+      descVI:  "Viết macro Visual Basic tự động hóa thao tác grading lặp lại trong Gerber AccuMark — áp dụng toàn bộ workflow công ty.",
+      descEN:  "Built Visual Basic macros to automate repetitive grading operations in Gerber AccuMark — deployed across the full company workflow.",
+      resultVI:"→ 3 giờ → 45 phút grading/style",
+      resultEN:"→ 3 hours → 45 min grading/style",
+    },
+  ],
+
+  /* ── HỌC VẤN & CHỨNG CHỈ / EDUCATION ──────────────────── */
+  education: [
+    {
+      degreeVI: "Cao Đẳng Thiết Kế Thời Trang / Công Nghệ May",
+      degreeEN: "Diploma — Fashion Design & Garment Technology",
+      schoolVI: "Trường Cao Đẳng Vinatex TP.HCM · Cơ sở đào tạo dệt may hàng đầu Việt Nam",
+      schoolEN: "Vinatex College, Ho Chi Minh City · Vietnam's leading garment & textile institution",
+      year: "2014",
+    },
+    {
+      degreeVI: "CLO 3D — Advanced Garment Simulation",
+      degreeEN: "CLO 3D — Advanced Garment Simulation",
+      schoolVI: "CLO Virtual Fashion · Online Certification",
+      schoolEN: "CLO Virtual Fashion · Online Certification",
+      year: "2022",
+    },
+    {
+      degreeVI: "Browzwear — Digital Fashion Workflow",
+      degreeEN: "Browzwear — Digital Fashion Workflow",
+      schoolVI: "Browzwear Official Training · Online",
+      schoolEN: "Browzwear Official Training · Online",
+      year: "2021",
+    },
+    {
+      degreeVI: "AI Image Generation cho Thiết kế Thời trang",
+      degreeEN: "AI Image Generation for Fashion Design",
+      schoolVI: "Midjourney / Stable Diffusion · Tự học · Ứng dụng vào workflow thực tế",
+      schoolEN: "Midjourney / Stable Diffusion · Self-directed · Applied to production workflows",
+      year: "2023",
+    },
+  ],
+
+  /* ── NHÃN GIAO DIỆN / UI LABELS ────────────────────────── */
+  ui: {
+    tabPortfolio:  { vi: "✦ Portfolio CV",   en: "✦ Portfolio CV"   },
+    tabATS:        { vi: "⬡ ATS Version",    en: "⬡ ATS Version"    },
+    secSummary:    { vi: "Giới thiệu",        en: "Professional Summary" },
+    secPortfolio:  { vi: "Portfolio",         en: "Portfolio"           },
+    secSkills:     { vi: "Năng lực cốt lõi", en: "Core Competencies"   },
+    secExperience: { vi: "Kinh nghiệm",       en: "Experience"          },
+    secProjects:   { vi: "Dự án tiêu biểu",  en: "Key Projects"        },
+    secEducation:  { vi: "Học vấn & Chứng chỉ", en: "Education & Certifications" },
+    secTechSkills: { vi: "Kỹ năng kỹ thuật", en: "Technical Skills"    },
+    atsNote:       {
+      vi: "<strong>Bản ATS</strong> — Tối ưu cho hệ thống lọc CV tự động. Dùng khi nộp qua portal tuyển dụng hoặc gửi file .docx / .pdf.",
+      en: "<strong>ATS Version</strong> — Optimized for automated applicant tracking systems. Use when applying via recruitment portals or submitting .docx / .pdf files.",
+    },
+  },
+
+};
+/* ═══════════════════════════════════════════════════════════════
+   KẾT THÚC KHU VỰC CÀI ĐẶT — END OF SETTINGS ZONE
+═══════════════════════════════════════════════════════════════ */
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#04050d;--surf:rgba(255,255,255,0.03);--surf2:#0e1020;
+  --border:rgba(255,255,255,0.055);--border-hi:rgba(255,255,255,0.12);
+  --text:#eeeae0;--muted:#52526a;--muted2:#7a7a96;
+  --gold:#c9aa6f;--gold2:#ead495;
+  --c1:#5ecfff;--c2:#ff6ec7;--c3:#6dffa0;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* CURSOR - removed */
+
+/* FX */
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:160px}
+.grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;background:linear-gradient(rgba(94,207,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(94,207,255,.022) 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 30%,transparent 100%)}
+.blobs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(110px);opacity:.055}
+.b1{width:580px;height:580px;top:-180px;left:-180px;background:radial-gradient(var(--c1),transparent 70%);animation:bd1 20s ease-in-out infinite}
+.b2{width:480px;height:480px;bottom:-140px;right:-140px;background:radial-gradient(var(--c2),transparent 70%);animation:bd2 24s ease-in-out infinite}
+.b3{width:360px;height:360px;top:40%;left:40%;background:radial-gradient(var(--gold),transparent 70%);animation:bd3 17s ease-in-out infinite}
+@keyframes bd1{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,55px)}}
+@keyframes bd2{0%,100%{transform:translate(0,0)}50%{transform:translate(-55px,-70px)}}
+@keyframes bd3{0%,100%{transform:translate(0,0)}50%{transform:translate(-35px,45px)}}
+.wires{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.wire{position:absolute;border:1px solid;opacity:.06}
+.w1{width:200px;height:200px;top:6%;right:4%;border-color:var(--c1);border-radius:4px;animation:wf 22s linear infinite}
+.w2{width:130px;height:130px;top:48%;left:-25px;border-color:var(--c2);border-radius:50%;animation:wf 17s linear infinite reverse}
+.w3{width:85px;height:85px;bottom:14%;right:9%;border-color:var(--gold);animation:wf 26s linear infinite;transform:rotate(45deg)}
+.w4{width:280px;height:1px;top:70%;right:0;border-color:var(--c1);animation:wsh 11s ease-in-out infinite}
+@keyframes wf{0%{transform:rotate(0deg) translateY(0)}50%{transform:rotate(180deg) translateY(-18px)}100%{transform:rotate(360deg) translateY(0)}}
+@keyframes wsh{0%,100%{opacity:.04;transform:scaleX(1)}50%{opacity:.14;transform:scaleX(.65)}}
+.scanline{position:fixed;z-index:2;width:100%;height:2px;background:linear-gradient(90deg,transparent,rgba(94,207,255,.05),transparent);pointer-events:none;animation:scan 9s linear infinite}
+@keyframes scan{0%{top:-2px}100%{top:100vh}}
+
+/* KEYFRAMES */
+@keyframes holo{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.45}50%{opacity:1}}
+.holo{background:linear-gradient(125deg,var(--c1) 0%,var(--c2) 28%,var(--gold2) 55%,var(--c3) 82%,var(--c1) 100%);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:holo 6s ease infinite}
+.gold{background:linear-gradient(125deg,var(--gold) 0%,var(--gold2) 45%,var(--gold) 100%);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:holo 4s ease infinite}
+
+/* HEADER */
+.site-header{position:relative;z-index:10;padding:4rem 3rem 3rem;border-bottom:1px solid var(--border);overflow:hidden}
+.site-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--c1) 35%,var(--c2) 65%,transparent 100%);background-size:200% 100%;animation:holo 5s ease infinite}
+.header-inner{max-width:1020px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
+.chip{display:inline-flex;align-items:center;gap:.45rem;font-family:'Space Mono',monospace;font-size:.59rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c3);border:1px solid rgba(109,255,160,.22);padding:.28rem .75rem;border-radius:100px;margin-bottom:1.4rem}
+.chip-dot{width:5px;height:5px;background:var(--c3);border-radius:50%;animation:pulse 2s ease infinite}
+.h-name{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,7.5vw,5.4rem);font-weight:300;letter-spacing:-.02em;line-height:1;color:var(--text)}
+.h-name em{font-style:italic}
+.h-title{font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.9rem;margin-bottom:2rem;color:var(--muted2)}
+.contact-grid{display:flex;flex-direction:column;gap:.5rem;align-items:flex-end;font-size:.77rem;color:var(--muted)}
+.contact-grid a{color:var(--gold);text-decoration:none;transition:color .2s}
+.contact-grid a:hover{color:var(--gold2)}
+.ci{display:flex;align-items:center;gap:.5rem;justify-content:flex-end}
+
+/* LANG TOGGLE */
+.lang-toggle{position:fixed;top:1.2rem;right:1.5rem;z-index:200;display:flex;gap:.3rem}
+.lang-btn{font-family:'Space Mono',monospace;font-size:.58rem;letter-spacing:.12em;padding:.3rem .65rem;border-radius:4px;border:1px solid var(--border);background:rgba(4,5,13,.7);color:var(--muted);cursor:pointer;transition:all .2s;backdrop-filter:blur(10px)}
+.lang-btn.on{background:rgba(94,207,255,.1);border-color:rgba(94,207,255,.35);color:var(--c1)}
+.lang-btn:hover:not(.on){color:var(--text);border-color:var(--border-hi)}
+
+/* TABS */
+.tab-bar{position:sticky;top:0;z-index:100;background:rgba(4,5,13,.9);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.tab-bar-inner{max-width:1020px;margin:0 auto;display:flex;align-items:center;padding:0 3rem}
+.tb{position:relative;font-family:'Space Mono',monospace;font-size:.59rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);background:none;border:none;cursor:pointer;padding:1.25rem 1.5rem;transition:color .3s;white-space:nowrap}
+.tb::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2));transform:scaleX(0);transition:transform .35s cubic-bezier(.23,1,.32,1)}
+.tb:hover{color:var(--text)}
+.tb.on{color:var(--text)}
+.tb.on::after{transform:scaleX(1)}
+.tsep{width:1px;height:18px;background:var(--border)}
+
+/* MAIN */
+.main{position:relative;z-index:5;max-width:1020px;margin:0 auto;padding:3rem 3rem 6rem}
+.pane{display:none}
+.pane.on{display:block;animation:fadeUp .5s ease both}
+
+/* SEC */
+.sec{margin-bottom:3rem}
+.sec-h{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:1rem;margin-bottom:1.6rem}
+.sec-h::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-hi),transparent)}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:3rem}
+.mbox{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1rem;text-align:center;position:relative;overflow:hidden;transition:transform .35s,border-color .3s}
+.mbox:hover{transform:translateY(-5px);border-color:var(--border-hi)}
+.mbox::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% -10%,rgba(94,207,255,.07),transparent 65%)}
+.mnum{font-family:'Cormorant Garamond',serif;font-size:2.3rem;font-weight:700;display:block;margin-bottom:.3rem;line-height:1}
+.mlbl{font-family:'Space Mono',monospace;font-size:.51rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* SUMMARY */
+.sumcard{position:relative;background:var(--surf);border:1px solid var(--border);border-radius:14px;padding:2.2rem;overflow:hidden}
+.sumcard::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--c1) 40%,var(--c2) 60%,transparent);animation:holo 5s ease infinite;background-size:200% 200%}
+.sumcard::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 100% at 0% 50%,rgba(94,207,255,.03),transparent 70%);pointer-events:none}
+.sumtext{font-family:'Cormorant Garamond',serif;font-size:1.16rem;font-weight:300;line-height:1.9;color:rgba(238,234,224,.93)}
+.sumtext strong{color:var(--gold2);font-weight:500}
+
+/* ── PORTFOLIO BENTO — DESKTOP ── */
+.pbento{
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  grid-template-rows:240px 160px;
+  gap:.7rem;
+}
+/* desktop slot positions */
+.pbento .ps:nth-child(1){ grid-column:1;   grid-row:1/3; } /* tall dominant — left  */
+.pbento .ps:nth-child(2){ grid-column:2;   grid-row:1;   } /* top center            */
+.pbento .ps:nth-child(3){ grid-column:3;   grid-row:1;   } /* top right             */
+.pbento .ps:nth-child(4){ grid-column:2/4; grid-row:2;   } /* wide bottom strip     */
+
+/* ── TABLET ── */
+@media(max-width:860px){
+  .pbento{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:200px 150px 130px;
+    gap:.6rem;
+  }
+  .pbento .ps:nth-child(1){ grid-column:1;   grid-row:1/3; } /* tall left             */
+  .pbento .ps:nth-child(2){ grid-column:2;   grid-row:1;   } /* top right             */
+  .pbento .ps:nth-child(3){ grid-column:2;   grid-row:2;   } /* mid right             */
+  .pbento .ps:nth-child(4){ grid-column:1/3; grid-row:3;   } /* full-width strip      */
+}
+
+/* ── MOBILE ── */
+@media(max-width:520px){
+  .pbento{
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:160px 110px 80px;
+    gap:.5rem;
+  }
+  .pbento .ps:nth-child(1){ grid-column:1/3; grid-row:1;   } /* full-width hero       */
+  .pbento .ps:nth-child(2){ grid-column:1;   grid-row:2;   } /* small left            */
+  .pbento .ps:nth-child(3){ grid-column:2;   grid-row:2;   } /* small right           */
+  .pbento .ps:nth-child(4){ grid-column:1/3; grid-row:3;   } /* panoramic strip       */
+}
+
+.ps{
+  position:relative;border-radius:10px;overflow:hidden;
+  background:var(--surf2);border:1px solid var(--border);
+  cursor:pointer;
+  transition:border-color .4s,box-shadow .4s;
+}
+.ps:hover{
+  border-color:rgba(94,207,255,.38);
+  box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 20px rgba(94,207,255,.08);
+  z-index:2;
+}
+.ps img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .7s cubic-bezier(.23,1,.32,1),filter .4s;
+}
+.ps:hover img{ transform:scale(1.07); filter:brightness(1.08); }
+
+/* empty slot */
+.ps-empty{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    45deg,
+    rgba(94,207,255,.015) 0px,rgba(94,207,255,.015) 1px,
+    transparent 1px,transparent 18px
+  );
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.55rem;
+}
+.ps-empty-ring{
+  width:44px;height:44px;border-radius:50%;
+  border:1px dashed rgba(94,207,255,.18);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(94,207,255,.2);font-size:1.2rem;
+  transition:all .35s;
+}
+.ps:hover .ps-empty-ring{ border-color:rgba(94,207,255,.5);color:rgba(94,207,255,.55); }
+.ps-empty-txt{
+  font-family:'Space Mono',monospace;font-size:.46rem;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(255,255,255,.1);
+  transition:color .3s;
+}
+.ps:hover .ps-empty-txt{ color:rgba(94,207,255,.4); }
+
+/* gradient overlay */
+.ps-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom, rgba(4,5,13,0) 40%, rgba(4,5,13,.78) 100%);
+  pointer-events:none;
+}
+/* caption */
+.ps-cap{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:.6rem .75rem;
+  transform:translateY(4px);opacity:0;
+  transition:transform .35s cubic-bezier(.23,1,.32,1),opacity .3s;
+  pointer-events:none;
+}
+.ps:hover .ps-cap{ transform:translateY(0);opacity:1; }
+/* on touch devices — always show caption */
+@media(hover:none){
+  .ps-cap{ opacity:1;transform:translateY(0); }
+}
+.ps-cap-tag{
+  font-family:'Space Mono',monospace;font-size:.47rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gold);line-height:1;
+}
+/* index number */
+.ps-num{
+  position:absolute;top:.55rem;right:.6rem;
+  font-family:'Space Mono',monospace;font-size:.46rem;letter-spacing:.06em;
+  color:rgba(255,255,255,.28);pointer-events:none;
+}
+
+/* ── LIGHTBOX ── */
+.lb{
+  position:fixed;inset:0;z-index:1000;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  background:rgba(3,4,11,0);backdrop-filter:blur(0px);
+  pointer-events:none;
+  transition:background .38s,backdrop-filter .38s;
+}
+.lb.open{
+  background:rgba(3,4,11,.95);backdrop-filter:blur(28px) saturate(160%);
+  pointer-events:all;
+}
+/* close */
+.lb-close{
+  position:absolute;top:1.3rem;right:1.5rem;z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.6);font-size:.85rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;backdrop-filter:blur(8px);
+  opacity:0;transition:opacity .3s,background .2s,color .2s,transform .25s;
+}
+.lb.open .lb-close{opacity:1;}
+.lb-close:hover{background:rgba(255,80,80,.18);color:white;transform:rotate(90deg);}
+
+/* stage — click left half = prev, right half = next */
+.lb-stage{
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+  flex:1;width:100%;max-height:78vh;
+  cursor:pointer;
+}
+/* click zones — invisible, split image in half */
+.lb-zone{
+  position:absolute;top:0;bottom:0;width:50%;z-index:5;
+  cursor:pointer;
+}
+.lb-zone-l{left:0;}
+.lb-zone-r{right:0;}
+
+.lb-img-wrap{
+  position:relative;
+  border-radius:10px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.07);
+  box-shadow:0 48px 128px rgba(0,0,0,.85),0 0 60px rgba(94,207,255,.05);
+  transform:scale(.9) translateY(10px);opacity:0;
+  transition:transform .48s cubic-bezier(.23,1,.32,1),opacity .38s;
+  pointer-events:none;/* zones handle clicks */
+}
+.lb.open .lb-img-wrap{transform:scale(1) translateY(0);opacity:1;}
+.lb-img-wrap img{
+  display:block;
+  max-width:min(86vw,960px);
+  max-height:72vh;
+  width:auto;height:auto;object-fit:contain;
+}
+.lb-img-wrap .lb-empty{
+  width:520px;max-width:80vw;height:300px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;
+  background:var(--surf2);
+  color:var(--muted);font-family:'Space Mono',monospace;
+  font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;
+}
+
+/* bottom bar: caption + dots + counter */
+.lb-bar{
+  display:flex;flex-direction:column;align-items:center;gap:.7rem;
+  padding:1rem 0 1.6rem;width:100%;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .4s .12s,transform .4s .12s;
+}
+.lb.open .lb-bar{opacity:1;transform:translateY(0);}
+
+/* dot indicators */
+.lb-dots{display:flex;gap:.45rem;align-items:center;}
+.lb-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.18);
+  border:1px solid transparent;
+  cursor:pointer;
+  transition:background .25s,transform .25s,border-color .25s;
+}
+.lb-dot:hover{background:rgba(255,255,255,.45);}
+.lb-dot.cur{
+  background:var(--c1);
+  border-color:rgba(94,207,255,.4);
+  transform:scale(1.4);
+}
+/* caption row */
+.lb-meta{
+  display:flex;align-items:center;gap:1.5rem;
+}
+.lb-caption{
+  font-family:'Space Mono',monospace;font-size:.57rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+}
+.lb-counter{
+  font-family:'Space Mono',monospace;font-size:.5rem;
+  color:var(--muted);letter-spacing:.06em;
+}
+
+/* SKILLS */
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem}
+.sgroup{background:var(--surf);border:1px solid var(--border);border-radius:12px;padding:1.3rem;transition:border-color .3s,transform .3s}
+.sgroup:hover{border-color:rgba(200,169,110,.3);transform:translateY(-4px)}
+.sgname{font-family:'Space Mono',monospace;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem}
+.stags{display:flex;flex-wrap:wrap;gap:.35rem}
+.stag{font-size:.71rem;font-weight:500;padding:.2rem .55rem;border-radius:4px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);color:rgba(238,234,224,.8);transition:all .2s;cursor:default}
+.stag:hover{background:rgba(94,207,255,.1);border-color:rgba(94,207,255,.3);color:var(--c1)}
+.stag.h{background:rgba(200,169,110,.1);border-color:rgba(200,169,110,.3);color:var(--gold2)}
+
+/* EXPERIENCE */
+.eitem{position:relative;padding:2rem;background:var(--surf);border:1px solid var(--border);border-radius:14px;margin-bottom:1.2rem;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
+.eitem:hover{border-color:rgba(94,207,255,.18);transform:translateX(5px);box-shadow:0 8px 36px rgba(0,0,0,.28)}
+.eitem::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--c1),var(--c2));border-radius:0 3px 3px 0;opacity:0;transition:opacity .3s}
+.eitem:hover::before{opacity:1}
+.ehead{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.6rem;margin-bottom:.4rem}
+.erole{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500}
+.eperiod{font-family:'Space Mono',monospace;font-size:.61rem;letter-spacing:.1em;color:var(--c1);background:rgba(94,207,255,.08);padding:.25rem .75rem;border-radius:100px;border:1px solid rgba(94,207,255,.2);white-space:nowrap}
+.eco{font-size:.77rem;color:var(--gold);font-weight:600;letter-spacing:.04em;margin-bottom:1.1rem}
+.ebl{list-style:none}
+.ebl li{position:relative;padding-left:1.4rem;margin-bottom:.55rem;font-size:.86rem;line-height:1.75;color:rgba(238,234,224,.82)}
+.ebl li::before{content:'›';position:absolute;left:0;color:var(--c1);font-size:1.05rem;font-weight:700;line-height:1.58}
+.ebl li strong{color:var(--text);font-weight:600}
+.kpi{display:inline-block;font-family:'Space Mono',monospace;font-size:.67rem;font-weight:700;background:linear-gradient(135deg,rgba(94,207,255,.15),rgba(255,110,199,.1));color:var(--c1);border:1px solid rgba(94,207,255,.28);padding:.07rem .44rem;border-radius:3px;letter-spacing:.04em}
+.kpig{display:inline-block;font-family:'Space Mono',monospace;font-size:.67rem;font-weight:700;background:rgba(200,169,110,.12);color:var(--gold2);border:1px solid rgba(200,169,110,.28);padding:.07rem .44rem;border-radius:3px}
+
+/* PROJECTS */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:1rem}
+.pcard{position:relative;background:var(--surf);border:1px solid var(--border);border-radius:14px;padding:1.5rem;overflow:hidden;transition:transform .4s cubic-bezier(.23,1,.32,1),border-color .3s,box-shadow .3s;cursor:default}
+.pcard:hover{transform:translateY(-9px);border-color:rgba(200,169,110,.38);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 28px rgba(200,169,110,.07)}
+.pcard::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--c1),var(--c2),var(--gold));background-size:200% 100%;animation:holo 3s ease infinite}
+.pbadge{font-family:'Space Mono',monospace;font-size:.53rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:rgba(200,169,110,.08);border:1px solid rgba(200,169,110,.2);padding:.18rem .5rem;border-radius:3px;display:inline-block;margin-bottom:.75rem}
+.pname{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:500;margin-bottom:.6rem}
+.pdesc{font-size:.79rem;line-height:1.68;color:var(--muted2)}
+.presult{margin-top:.75rem;font-family:'Space Mono',monospace;font-size:.62rem;color:var(--c3);letter-spacing:.03em}
+.pcorner{position:absolute;bottom:.8rem;right:.8rem;width:18px;height:18px;border-right:1.5px solid rgba(94,207,255,.22);border-bottom:1.5px solid rgba(94,207,255,.22)}
+
+/* EDUCATION */
+.edrow{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--border)}
+.edrow:last-child{border:none}
+.eddeg{font-size:.9rem;font-weight:600}
+.edsch{font-size:.77rem;color:var(--muted2);margin-top:.2rem}
+.edyr{font-family:'Space Mono',monospace;font-size:.66rem;color:var(--c2);background:rgba(255,110,199,.07);border:1px solid rgba(255,110,199,.2);padding:.2rem .6rem;border-radius:100px;white-space:nowrap}
+
+/* ATS NOTE */
+.ats-note{display:flex;gap:.8rem;background:rgba(109,255,160,.04);border:1px solid rgba(109,255,160,.17);border-radius:10px;padding:.9rem 1.2rem;margin-bottom:2rem;font-size:.8rem;color:var(--c3);line-height:1.65}
+.aks{background:rgba(94,207,255,.1);border-radius:2px;padding:0 2px;color:var(--c1)}
+.ats-plain{font-size:.86rem;line-height:1.88;color:rgba(238,234,224,.9)}
+.ats-plain strong{color:var(--gold2)}
+
+/* FOOTER */
+.foot{position:relative;z-index:5;text-align:center;padding:2.2rem;border-top:1px solid var(--border);font-family:'Space Mono',monospace;font-size:.53rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.foot::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:36%;height:1px;background:linear-gradient(90deg,transparent,var(--c1),var(--c2),transparent)}
+
+/* RESPONSIVE — GLOBAL */
+@media(max-width:768px){
+  .site-header{padding:2.5rem 1.4rem 2rem}
+  .header-inner{grid-template-columns:1fr}
+  .contact-grid{align-items:flex-start}
+  .ci{justify-content:flex-start}
+  .main{padding:2rem 1.4rem 4rem}
+  .tab-bar-inner{padding:0 .8rem}
+  .tb{padding:1.1rem .9rem;font-size:.54rem}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .h-name{font-size:2.5rem}
+  .lang-toggle{top:.8rem;right:1rem}
+  /* lightbox on mobile */
+  .lb-img-wrap img{max-width:96vw;max-height:60vh}
+  .lb-bar{padding:.7rem 0 1rem}
+  .lb-stage{max-height:65vh}
+}
+</style>
+</head>
+<body>
+
+<!-- FX LAYERS -->
+<div class="noise"></div>
+<div class="grid-bg"></div>
+<div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="wires"><div class="wire w1"></div><div class="wire w2"></div><div class="wire w3"></div><div class="wire w4"></div></div>
+<div class="scanline"></div>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-toggle">
+  <button class="lang-btn on" id="btn-vi" onclick="setLang('vi')">VI</button>
+  <button class="lang-btn"    id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- HEADER (rendered by JS) -->
+<header class="site-header" id="site-header"></header>
+
+<!-- TABS -->
+<nav class="tab-bar">
+  <div class="tab-bar-inner">
+    <button class="tb on" id="tab-hm"  onclick="setTab('hm',this)"></button>
+    <div class="tsep"></div>
+    <button class="tb"    id="tab-ats" onclick="setTab('ats',this)"></button>
+  </div>
+</nav>
+
+<main class="main">
+  <div id="hm"  class="pane on"></div>
+  <div id="ats" class="pane"></div>
+</main>
+
+<footer class="foot" id="foot"></footer>
+
+<script>
+/* ─── STATE ─── */
+let LANG = CONFIG.defaultLang;
+
+/* ─── HELPERS ─── */
+const L  = (obj) => typeof obj === 'object' ? (obj[LANG] || obj.vi || obj.en) : obj;
+const $  = (id)  => document.getElementById(id);
+const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls)e.className=cls; if(html)e.innerHTML=html; return e; };
+
+// Parse inline <kpi> and <kpig> tags in bullet strings
+function parseBullet(str){
+  return str
+    .replace(/<kpi>(.*?)<\/kpi>/g, '<span class="kpi">$1</span>')
+    .replace(/<kpig>(.*?)<\/kpig>/g, '<span class="kpig">$1</span>');
+}
+
+/* ─── RENDER HEADER ─── */
+function renderHeader(){
+  const p = CONFIG.personal;
+  const loc  = LANG==='vi' ? p.locationVI : p.locationEN;
+  const stat = L(p.status);
+  const firstName = LANG==='vi' ? p.lastName.split(' ').slice(-1)[0] : p.firstName;
+  const lastName  = LANG==='vi' ? p.lastName.split(' ').slice(0,-1).join(' ') || p.lastName : p.lastName;
+
+  $('site-header').innerHTML = `
+    <div class="header-inner">
+      <div>
+        <div class="chip"><span class="chip-dot"></span>${stat}</div>
+        <h1 class="h-name"><em>${LANG==='vi'?p.lastName:p.firstName}</em> <span class="holo">${LANG==='vi'?p.firstName:p.lastName}</span></h1>
+        <div class="h-title"><span class="gold">${LANG==='vi'?p.titleVI.split('·')[0].trim():p.titleEN.split('·')[0].trim()}</span>&nbsp;&nbsp;·&nbsp;&nbsp;${(LANG==='vi'?p.titleVI:p.titleEN).split('·').slice(1).join('·').trim()}</div>
+      </div>
+      <div class="contact-grid">
+        <div class="ci"><span>📍</span><span>${loc}</span></div>
+        <div class="ci"><span>✉</span><a href="mailto:${p.email}">${p.email}</a></div>
+        <div class="ci"><span>🔗</span><a href="https://${p.linkedin}" target="_blank">${p.linkedin}</a></div>
+        <div class="ci"><span>🎨</span><a href="https://${p.portfolio}" target="_blank">${p.portfolio}</a></div>
+        <div class="ci"><span>📞</span><span>${p.phone}</span></div>
+      </div>
+    </div>`;
+}
+
+/* ─── RENDER PANE HM ─── */
+function renderHM(){
+  const ui = CONFIG.ui;
+  let html = '';
+
+  // METRICS
+  html += '<div class="metrics">';
+  CONFIG.metrics.forEach(m=>{
+    const lbl = LANG==='vi' ? m.labelVI : m.labelEN;
+    const colClass = ['holo','','gold',''][CONFIG.metrics.indexOf(m)] || '';
+    const colStyle = CONFIG.metrics.indexOf(m)===1?'style="color:var(--c2)"':CONFIG.metrics.indexOf(m)===3?'style="color:var(--c3)"':'';
+    html += `<div class="mbox"><span class="mnum ${colClass}" ${colStyle}>${m.num}</span><span class="mlbl">${lbl}</span></div>`;
+  });
+  html += '</div>';
+
+  // SUMMARY
+  html += `<section class="sec"><div class="sec-h">${L(ui.secSummary)}</div>
+    <div class="sumcard"><p class="sumtext">${L(CONFIG.summary)}</p></div></section>`;
+
+  // PORTFOLIO — editorial bento
+  html += `<section class="sec"><div class="sec-h">${L(ui.secPortfolio)}</div><div class="pbento">`;
+  CONFIG.portfolio.forEach((p,i)=>{
+    const cap = LANG==='vi' ? p.captionVI : p.captionEN;
+    if(p.url){
+      html += `<div class="ps" onclick="lbOpen(${i})">
+        <img src="${p.url}" alt="${cap}" loading="lazy">
+        <div class="ps-overlay"></div>
+        <div class="ps-cap"><div class="ps-cap-tag">${cap}</div></div>
+        <div class="ps-num">0${i+1}</div>
+      </div>`;
+    } else {
+      html += `<div class="ps" onclick="lbOpen(${i})">
+        <div class="ps-empty">
+          <div class="ps-empty-ring">+</div>
+          <div class="ps-empty-txt">${cap}</div>
+        </div>
+        <div class="ps-num">0${i+1}</div>
+      </div>`;
+    }
+  });
+  html += '</div></section>';
+
+  // SKILLS
+  html += `<section class="sec"><div class="sec-h">${L(ui.secSkills)}</div><div class="sgrid">`;
+  CONFIG.skills.forEach(g=>{
+    const gname = LANG==='vi' ? g.nameVI : g.nameEN;
+    html += `<div class="sgroup"><div class="sgname">${gname}</div><div class="stags">`;
+    g.tags.forEach(t => { html += `<span class="stag${t.hot?' h':''}">${t.label}</span>`; });
+    html += '</div></div>';
+  });
+  html += '</div></section>';
+
+  // EXPERIENCE
+  html += `<section class="sec"><div class="sec-h">${L(ui.secExperience)}</div>`;
+  CONFIG.experience.forEach(exp=>{
+    const role   = LANG==='vi' ? exp.roleVI     : exp.roleEN;
+    const loc    = LANG==='vi' ? exp.locationVI : exp.locationEN;
+    const bullets= LANG==='vi' ? exp.bulletsVI  : exp.bulletsEN;
+    html += `<div class="eitem">
+      <div class="ehead"><div class="erole">${role}</div><div class="eperiod">${exp.period}</div></div>
+      <div class="eco">${exp.company} · ${loc}</div><ul class="ebl">`;
+    bullets.forEach(b => { html += `<li>${parseBullet(b)}</li>`; });
+    html += '</ul></div>';
+  });
+  html += '</section>';
+
+  // PROJECTS
+  html += `<section class="sec"><div class="sec-h">${L(ui.secProjects)}</div><div class="pgrid">`;
+  CONFIG.projects.forEach(p=>{
+    const badge  = LANG==='vi' ? p.badgeVI  : p.badgeEN;
+    const name   = LANG==='vi' ? p.nameVI   : p.nameEN;
+    const desc   = LANG==='vi' ? p.descVI   : p.descEN;
+    const result = LANG==='vi' ? p.resultVI : p.resultEN;
+    html += `<div class="pcard">
+      <div class="pbadge">${badge}</div>
+      <div class="pname">${name}</div>
+      <div class="pdesc">${desc}</div>
+      <div class="presult">${result}</div>
+      <div class="pcorner"></div></div>`;
+  });
+  html += '</div></section>';
+
+  // EDUCATION
+  html += `<section class="sec"><div class="sec-h">${L(ui.secEducation)}</div>`;
+  CONFIG.education.forEach(e=>{
+    const deg = LANG==='vi' ? e.degreeVI : e.degreeEN;
+    const sch = LANG==='vi' ? e.schoolVI : e.schoolEN;
+    html += `<div class="edrow"><div><div class="eddeg">${deg}</div><div class="edsch">${sch}</div></div><div class="edyr">${e.year}</div></div>`;
+  });
+  html += '</section>';
+
+  $('hm').innerHTML = html;
+  attachTilt();
+}
+
+/* ─── RENDER PANE ATS ─── */
+function renderATS(){
+  const ui = CONFIG.ui;
+  let html = '';
+
+  // ATS NOTE
+  html += `<div class="ats-note"><span style="font-size:1rem;flex-shrink:0">🤖</span><div>${L(ui.atsNote)}</div></div>`;
+
+  // SUMMARY
+  const sumText = L(CONFIG.summary).replace(/<strong>/g,'').replace(/<\/strong>/g,'');
+  html += `<section class="sec"><div class="sec-h">${L(ui.secSummary)}</div>
+    <div class="eitem" style="border-left:3px solid var(--c1)"><p class="ats-plain">${sumText}</p></div></section>`;
+
+  // TECH SKILLS (flat list)
+  html += `<section class="sec"><div class="sec-h">${L(ui.secTechSkills)}</div><div class="eitem"><div style="font-size:.85rem;line-height:2.1">`;
+  CONFIG.skills.forEach(g=>{
+    const gname = LANG==='vi' ? g.nameVI : g.nameEN;
+    const tagList = g.tags.map(t=>t.label).join(', ');
+    html += `<p><strong style="color:var(--gold)">${gname}:</strong> ${tagList}</p>`;
+  });
+  html += '</div></div></section>';
+
+  // EXPERIENCE
+  html += `<section class="sec"><div class="sec-h">${L(ui.secExperience)}</div>`;
+  CONFIG.experience.forEach(exp=>{
+    const role   = LANG==='vi' ? exp.roleVI     : exp.roleEN;
+    const loc    = LANG==='vi' ? exp.locationVI : exp.locationEN;
+    const bullets= LANG==='vi' ? exp.bulletsVI  : exp.bulletsEN;
+    html += `<div class="eitem" style="margin-bottom:1rem">
+      <div class="ehead"><div class="erole">${role}</div><div class="eperiod">${exp.period}</div></div>
+      <div class="eco">${exp.company} · ${loc}</div><ul class="ebl">`;
+    bullets.forEach(b=>{ html += `<li>${parseBullet(b)}</li>`; });
+    html += '</ul></div>';
+  });
+  html += '</section>';
+
+  // PROJECTS (flat)
+  html += `<section class="sec"><div class="sec-h">${L(ui.secProjects)}</div><div class="eitem"><ul class="ebl">`;
+  CONFIG.projects.forEach(p=>{
+    const name   = LANG==='vi' ? p.nameVI   : p.nameEN;
+    const desc   = LANG==='vi' ? p.descVI   : p.descEN;
+    const result = LANG==='vi' ? p.resultVI : p.resultEN;
+    html += `<li><strong>${name}:</strong> ${desc} <span class="kpi">${result}</span></li>`;
+  });
+  html += '</ul></div></section>';
+
+  // EDUCATION
+  html += `<section class="sec"><div class="sec-h">${L(ui.secEducation)}</div>`;
+  CONFIG.education.forEach(e=>{
+    const deg = LANG==='vi' ? e.degreeVI : e.degreeEN;
+    const sch = LANG==='vi' ? e.schoolVI : e.schoolEN;
+    html += `<div class="edrow"><div><div class="eddeg">${deg}</div><div class="edsch">${sch}</div></div><div class="edyr">${e.year}</div></div>`;
+  });
+  html += '</section>';
+
+  $('ats').innerHTML = html;
+}
+
+/* ─── RENDER TABS LABELS ─── */
+function renderTabLabels(){
+  const ui = CONFIG.ui;
+  $('tab-hm').textContent  = L(ui.tabPortfolio);
+  $('tab-ats').textContent = L(ui.tabATS);
+}
+
+/* ─── RENDER FOOTER ─── */
+function renderFooter(){
+  const p = CONFIG.personal;
+  const name = `${p.lastName} ${p.firstName}`;
+  const title = LANG==='vi' ? p.titleVI.split('·')[0].trim() : p.titleEN.split('·')[0].trim();
+  $('foot').textContent = `${name} · ${title} · 2025`;
+}
+
+/* ─── FULL RENDER ─── */
+function renderAll(){
+  renderHeader();
+  renderTabLabels();
+  renderHM();
+  renderATS();
+  renderFooter();
+  // restore active tab visual
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  const activeId = document.querySelector('.pane.on').id;
+  $('tab-'+activeId).classList.add('on');
+}
+
+/* ─── LANGUAGE SWITCH ─── */
+function setLang(lang){
+  LANG = lang;
+  $('btn-vi').classList.toggle('on', lang==='vi');
+  $('btn-en').classList.toggle('on', lang==='en');
+  renderAll();
+}
+
+/* ─── TAB SWITCH ─── */
+function setTab(id, btn){
+  document.querySelectorAll('.pane').forEach(p=>p.classList.remove('on'));
+  document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
+  $(id).classList.add('on');
+  btn.classList.add('on');
+  window.scrollTo({top:document.querySelector('.tab-bar').offsetTop-1,behavior:'smooth'});
+}
+
+/* ─── 3D TILT ─── */
+function attachTilt(){
+  document.querySelectorAll('.pcard').forEach(c=>{
+    c.addEventListener('mousemove',e=>{
+      const r=c.getBoundingClientRect();
+      const x=((e.clientX-r.left)/r.width-.5)*14;
+      const y=((e.clientY-r.top)/r.height-.5)*-14;
+      c.style.transform=`translateY(-9px) rotateX(${y}deg) rotateY(${x}deg)`;
+    });
+    c.addEventListener('mouseleave',()=>c.style.transform='');
+  });
+}
+
+/* ─── LIGHTBOX ─── */
+let lbIdx = 0;
+const total = CONFIG.portfolio.length;
+
+function lbBuildDots(){
+  const el = $('lb-dots'); if(!el) return;
+  el.innerHTML = '';
+  CONFIG.portfolio.forEach((_,i)=>{
+    const d = document.createElement('div');
+    d.className = 'lb-dot' + (i===lbIdx?' cur':'');
+    d.onclick = e=>{ e.stopPropagation(); lbGo(i); };
+    el.appendChild(d);
+  });
+}
+
+function lbRender(dir){
+  const lbImgWrap = $('lb-imgwrap');
+  const lbCapEl   = $('lb-caption');
+  const lbCtrEl   = $('lb-counter');
+  if(!lbImgWrap) return;
+  const p   = CONFIG.portfolio[lbIdx];
+  const cap = LANG==='vi' ? p.captionVI : p.captionEN;
+  if(lbCapEl) lbCapEl.textContent = cap;
+  if(lbCtrEl) lbCtrEl.textContent = `${String(lbIdx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+  const outX = dir>=0 ? '-60px' : '60px';
+  lbImgWrap.style.transition = 'opacity .18s, transform .2s';
+  lbImgWrap.style.opacity    = '0';
+  lbImgWrap.style.transform  = `translateX(${outX}) scale(.97)`;
+  setTimeout(()=>{
+    const wrap = $('lb-imgwrap'); if(!wrap) return;
+    if(p.url){
+      wrap.innerHTML = `<img src="${p.url}" alt="${cap}">`;
+    } else {
+      const txt = LANG==='vi' ? 'Chưa có ảnh' : 'No image yet';
+      wrap.innerHTML = `<div class="lb-empty"><span style="font-size:1.8rem;opacity:.18">◻</span><span>${txt}</span></div>`;
+    }
+    const inX = dir>=0 ? '50px' : '-50px';
+    wrap.style.transition = 'none';
+    wrap.style.transform  = `translateX(${inX}) scale(.97)`;
+    wrap.style.opacity    = '0';
+    requestAnimationFrame(()=>{
+      wrap.style.transition = 'opacity .35s, transform .4s cubic-bezier(.23,1,.32,1)';
+      wrap.style.opacity    = '1';
+      wrap.style.transform  = 'translateX(0) scale(1)';
+    });
+  }, 190);
+  document.querySelectorAll('.lb-dot').forEach((d,i)=>d.classList.toggle('cur',i===lbIdx));
+}
+
+function lbOpen(idx){
+  const lbEl      = $('lb');
+  const lbImgWrap = $('lb-imgwrap');
+  if(!lbEl || !lbImgWrap) return;
+  lbIdx = idx;
+  lbEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  lbBuildDots();
+  lbImgWrap.style.transition = 'none';
+  lbImgWrap.style.opacity    = '0';
+  lbImgWrap.style.transform  = 'scale(.9) translateY(12px)';
+  const p   = CONFIG.portfolio[lbIdx];
+  const cap = LANG==='vi' ? p.captionVI : p.captionEN;
+  const lbCapEl = $('lb-caption');
+  const lbCtrEl = $('lb-counter');
+  if(lbCapEl) lbCapEl.textContent = cap;
+  if(lbCtrEl) lbCtrEl.textContent = `${String(lbIdx+1).padStart(2,'0')} / ${String(total).padStart(2,'0')}`;
+  if(p.url){
+    lbImgWrap.innerHTML = `<img src="${p.url}" alt="${cap}">`;
+  } else {
+    const txt = LANG==='vi' ? 'Chưa có ảnh' : 'No image yet';
+    lbImgWrap.innerHTML = `<div class="lb-empty"><span style="font-size:1.8rem;opacity:.18">◻</span><span>${txt}</span></div>`;
+  }
+  requestAnimationFrame(()=>{
+    lbImgWrap.style.transition = 'opacity .45s, transform .48s cubic-bezier(.23,1,.32,1)';
+    lbImgWrap.style.opacity    = '1';
+    lbImgWrap.style.transform  = 'scale(1) translateY(0)';
+  });
+}
+
+function lbClose(){
+  const lbEl      = $('lb');
+  const lbImgWrap = $('lb-imgwrap');
+  if(!lbEl) return;
+  lbEl.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(()=>{ if(lbImgWrap) lbImgWrap.innerHTML=''; }, 400);
+}
+
+function lbGo(idx, dir){
+  const prev = lbIdx;
+  lbIdx = ((idx % total) + total) % total;
+  const d = dir !== undefined ? dir : (lbIdx > prev ? 1 : -1);
+  lbRender(d);
+}
+
+// bind lightbox events after DOM is ready
+window.addEventListener('DOMContentLoaded', ()=>{
+  const lbCloseBtn = $('lb-close');
+  const lbZoneL    = $('lb-zone-l');
+  const lbZoneR    = $('lb-zone-r');
+  const lbOverlay  = $('lb');
+  if(lbCloseBtn) lbCloseBtn.onclick = e=>{ e.stopPropagation(); lbClose(); };
+  if(lbZoneL)    lbZoneL.onclick    = e=>{ e.stopPropagation(); lbGo(lbIdx-1,-1); };
+  if(lbZoneR)    lbZoneR.onclick    = e=>{ e.stopPropagation(); lbGo(lbIdx+1, 1); };
+  if(lbOverlay)  lbOverlay.addEventListener('click', e=>{ if(e.target===lbOverlay) lbClose(); });
+});
+// keyboard
+document.addEventListener('keydown', e=>{
+  const el = $('lb');
+  if(!el || !el.classList.contains('open')) return;
+  if(e.key==='Escape')     lbClose();
+  if(e.key==='ArrowLeft')  lbGo(lbIdx-1,-1);
+  if(e.key==='ArrowRight') lbGo(lbIdx+1, 1);
+});
+// swipe
+let tsX=0;
+document.addEventListener('touchstart', e=>{ tsX=e.touches[0].clientX; },{passive:true});
+document.addEventListener('touchend',   e=>{
+  const el = $('lb');
+  if(!el || !el.classList.contains('open')) return;
+  const dx = e.changedTouches[0].clientX - tsX;
+  if(Math.abs(dx)>48){ dx<0 ? lbGo(lbIdx+1,1) : lbGo(lbIdx-1,-1); }
+});
+
+/* ─── INIT ─── */
+setLang(CONFIG.defaultLang);
+</script>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lb-close">✕</button>
+  <div class="lb-stage">
+    <div class="lb-zone lb-zone-l" id="lb-zone-l"></div>
+    <div class="lb-img-wrap" id="lb-imgwrap"></div>
+    <div class="lb-zone lb-zone-r" id="lb-zone-r"></div>
+  </div>
+  <div class="lb-bar">
+    <div class="lb-dots" id="lb-dots"></div>
+    <div class="lb-meta">
+      <span class="lb-caption" id="lb-caption"></span>
+      <span class="lb-counter" id="lb-counter"></span>
+    </div>
+  </div>
+</div>
+</body>
+</html>
