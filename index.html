@@ -52,18 +52,18 @@ const CONFIG = {
 
   /* ── TÓM TẮT / SUMMARY ──────────────────────────────────── */
   summary: {
-    vi: `<strong>Chuyên gia kỹ thuật rập</strong> với hơn 8 năm kinh nghiệm chuyển hóa ý tưởng thiết kế thành rập kỹ thuật production-ready — vải dệt thoi, dệt kim và các kết cấu nâng cao: <strong>Seamless, Bonding, Outer</strong>. Kết nối kỹ thuật truyền thống với công nghệ số thế hệ mới — từ <strong>Gerber AccuMark</strong> và <strong>CLO 3D</strong> đến AI-assisted design — rút ngắn chu trình sampling, tăng tốc phê duyệt và giảm chi phí đáng kể mỗi mùa. Được tin dùng bởi buyer trong nước và quốc tế trên ba category <strong>Kids, Men's và Women's</strong>.`,
-    en: `<strong>Pattern engineering specialist</strong> with 8+ years transforming design concepts into production-ready technical patterns across woven, knit, and advanced constructions — <strong>Seamless, Bonding, Outer</strong>. Bridges traditional craft precision with next-generation digital tools: from <strong>Gerber AccuMark</strong> and <strong>CLO 3D</strong> to AI-assisted design — compressing sample cycles, accelerating approvals, and delivering measurable cost savings each season. Trusted by domestic and international buyers across <strong>Kids, Men's, and Women's</strong> categories.`,
+    vi: `<strong>Chuyên gia kỹ thuật rập</strong> với hơn 8 năm kinh nghiệm thiết kế rập — với nhiều chủng loại: <strong>Seamless, Bonding, Outer</strong>. Kết nối kỹ thuật truyền thống với công nghệ số thế hệ mới — từ <strong>Gerber AccuMark</strong> và <strong>CLO 3D</strong> đến AI-assisted design — rút ngắn chu trình phát triển mẫu, duy trì chất lượng mẫu và giảm chi phí đáng kể mỗi mùa. Được tin tưởng bởi các Brand trong nước và quốc tế trên các nhóm <strong>Kids, Men's và Women's</strong>.`,
+    en: `<strong>Technical Pattern Specialist</strong> with over 8 years of experience in pattern design — across various categories- <strong>Seamless, Bonding, Outer</strong>. Combining traditional pattern-making techniques with next-generation digital technologies — from <strong>Gerber AccuMark</strong> and <strong>CLO 3D</strong> to AI-assisted design — significantly shortening the sample development cycle, maintaining sample quality, and substantially reducing costs each season. Trusted by both domestic and international brands across  <strong>Kids, Men's, and Women's</strong> categories.`,
   },
 
   /* ── NHÓM KỸ NĂNG / SKILL GROUPS ───────────────────────── */
   skills: [
     {
-      nameVI: "Kỹ thuật rập", nameEN: "Pattern Engineering",
+      nameVI: "Thiết kế rập", nameEN: "Pattern Design",
       tags: [
-        { label: "Flat Pattern Making", hot: true  },
+        { label: "Pattern Making", hot: true  },
         { label: "Pattern Grading",     hot: true  },
-        { label: "Fit Analysis",        hot: true  },
+        { label: "Fitting",        hot: true  },
         { label: "Seamless",            hot: false },
         { label: "Bonding",             hot: false },
         { label: "Outer",               hot: false },
@@ -72,12 +72,12 @@ const CONFIG = {
       ]
     },
     {
-      nameVI: "3D Virtual Prototyping", nameEN: "3D Virtual Prototyping",
+      nameVI: "Tạo mẫu 3D", nameEN: "3D Virtual Prototyping",
       tags: [
         { label: "CLO 3D",             hot: true  },
         { label: "Browzwear",          hot: true  },
-        { label: "Marvelous Designer", hot: false },
-        { label: "Garment Simulation", hot: false },
+        { label: "Style3D", hot: false },
+        { label: "Textture design", hot: false },
         { label: "Virtual Fitting",    hot: false },
         { label: "3D Rendering",       hot: false },
       ]
@@ -109,63 +109,81 @@ const CONFIG = {
     {
       roleVI:    "Senior Pattern Maker",
       roleEN:    "Senior Pattern Maker",
-      company:   "Công ty A — điền tên thật",
-      locationVI:"TP. Hồ Chí Minh · Outerwear & Activewear",
-      locationEN:"Ho Chi Minh City · Outerwear & Activewear",
+      company:   "Triumph International Vietnam",
+      locationVI:"TP. Hồ Chí Minh · The maker of Lingerie",
+      locationEN:"Ho Chi Minh City · The maker of Lingerie",
       period:    "2021 – Nay / Present",
       bulletsVI: [
-        "Phát triển <strong>rập kỹ thuật Outer, Seamless và Bonding</strong> — đạt tỷ lệ duyệt mẫu lần đầu <kpi>↑ 87%</kpi>, giảm vòng chỉnh sửa từ 3 xuống còn 1,4 lần.",
-        "Triển khai <strong>CLO 3D virtual prototyping</strong> toàn bộ dòng outerwear — cắt giảm <kpi>~45%</kpi> mẫu vật lý/mùa, tiết kiệm ước tính <kpig>~$28.000/năm</kpig> chi phí sampling.",
-        "Quản lý <strong>grading & size-set validation</strong> 120+ styles trên 6 cỡ — không có QC escalation ở giai đoạn sản xuất đại trà.",
-        "Phối hợp Design & Merchandising chuyển concept thành spec kỹ thuật, rút ngắn <kpi>35%</kpi> chu kỳ chỉnh sửa nội bộ.",
-        "Đào tạo 3 junior pattern maker về Gerber AccuMark và 3D simulation — nâng năng suất từ 8 lên <kpi>11 styles/tuần</kpi>.",
+        "Phát triển <strong>rập cho dòng ultimate Seamless và Bonding</strong> — đạt tỷ lệ duyệt mẫu lần đầu <kpi>↑ 87%</kpi>, ",
+        "Triển khai <strong>CLO 3D virtual prototyping</strong> toàn bộ dòng sport wear — cắt giảm <kpi>~45%</kpi> mẫu vật lý/mùa, giảm hơn 70% số lượng color samples cần thiết",
+        "Quản lý <strong>grading & size-set validation</strong> cho thương hiệu — không có QC escalation ở giai đoạn sản xuất đại trà.",
+        "Phối hợp Design & MD chuyển concept thành spec kỹ thuật, rút ngắn <kpi>35%</kpi> chu kỳ chỉnh sửa nội bộ.",
+        "Đào tạo 3 junior pattern maker về Gerber AccuMark và 3D simulation.",
       ],
       bulletsEN: [
-        "Engineered technical patterns for <strong>Outer, Seamless, and Bonding</strong> constructions — achieving <kpi>87%</kpi> first-sample fit approval rate, reducing correction rounds from 3 to 1.4.",
-        "Implemented <strong>CLO 3D virtual prototyping</strong> across the outerwear line — reducing physical samples by <kpi>~45%</kpi> per season, saving an estimated <kpig>~$28,000/year</kpig> in sampling costs.",
-        "Managed <strong>grading & size-set validation</strong> for 120+ styles across 6 size runs with zero QC escalations at bulk production.",
-        "Collaborated with Design & Merchandising to convert concepts into tech specs, cutting internal revision cycles by <kpi>35%</kpi>.",
-        "Trained 3 junior pattern makers in Gerber AccuMark and 3D simulation — improving team output from 8 to <kpi>11 styles/week</kpi>.",
+        "Engineered technical patterns for <strong>ultimate, Seamless, and Bonding</strong> constructions — achieving <kpi>87%</kpi> first-sample fit approval rate, reducing correction rounds from 3 to 1.4.",
+        "Implemented <strong>CLO 3D virtual prototyping</strong> across the outerwear line — reducing physical samples by <kpi>~45%</kpi> per season, reducing 70% quantity of color samples",
+        "Managed <strong>grading & size-set validation</strong> for brand with zero QC escalations at bulk production.",
+        "Collaborated with Design & MD to convert concepts into tech specs, cutting internal revision cycles by <kpi>35%</kpi>.",
+        "Trained 3 junior pattern makers in Gerber AccuMark and 3D simulation.",
       ],
     },
     {
       roleVI:    "Pattern Maker",
       roleEN:    "Pattern Maker",
-      company:   "Công ty B — điền tên thật",
+      company:   "CherryField Vietnam",
       locationVI:"TP. Hồ Chí Minh · Kids, Women's & Men's Export Apparel",
       locationEN:"Ho Chi Minh City · Kids, Women's & Men's Export Apparel",
       period:    "2017 – 2021",
       bulletsVI: [
-        "Thiết kế rập cho <strong>3 category: Kids, Women's, Men's</strong> — vải dệt thoi và dệt kim — grade point nhất quán trên 8 cỡ mỗi style.",
-        "Rút ngắn thời gian hoàn thiện rập từ <kpi>5 ngày → 2 ngày</kpi> bằng chuẩn hóa tài liệu fit comment và thư viện block template nội bộ.",
-        "Ứng dụng <strong>Browzwear</strong> duyệt fit từ xa với buyer nước ngoài — loại bỏ <kpi>4 chuyến công tác/năm</kpi>, tiết kiệm ~$12.000 chi phí.",
+        "Thiết kế rập cho <strong>3 category: Kids, Women's, Men's</strong> — vải dệt thoi và dệt kim — grade point nhất quán mỗi style theo yêu cầu của vendor.",
+        "Rút ngắn thời gian hoàn thiện rập từ <kpi>5 ngày → 2 ngày</kpi> bằng chuẩn hóa quy trình fit comment và thư viện block approved nội bộ.",
+        "Ứng dụng <strong>Browzwear</strong> duyệt fit từ xa với buyer nước ngoài — loại bỏ <kpi>chi phí tạo mẫu ban đầu.",
         "Hoàn thiện <strong>tech pack & technical drawing</strong> bằng Adobe Illustrator với độ chính xác số đo <kpi>94%</kpi> trên mẫu đầu tiên.",
-        "Giao đầy đủ file cho <strong>200+ styles</strong> trên 3 mùa liên tiếp — không có delay giao nộp cho nhà máy.",
+        "Giao đầy đủ file cho <strong>20+ factorys</strong> trong và ngoài nước.",
       ],
       bulletsEN: [
-        "Developed patterns for <strong>Kids, Women's, and Men's categories</strong> in woven and knit — consistent grade points across 8 size ranges per style.",
-        "Reduced pattern completion time from <kpi>5 days → 2 days</kpi> by standardizing fit comment documentation and internal block template library.",
-        "Adopted <strong>Browzwear</strong> for remote buyer fit reviews — eliminating <kpi>4 overseas trips/year</kpi>, saving ~$12,000 in travel costs.",
-        "Delivered <strong>tech packs & technical drawings</strong> in Adobe Illustrator with <kpi>94%</kpi> measurement accuracy on first-fit samples.",
-        "Delivered <strong>200+ styles</strong> across 3 consecutive seasons with zero file delivery delays to manufacturers.",
+        "Pattern design for <strong>3 categories: Kids, Women's, Men's</strong> — woven and knit fabrics — with consistent grading for every style according to vendor requirements.",
+        "Reduced pattern completion time from <kpi>5 days → 2 days</kpi> by standardizing the fit comment process and internal approved block library.",
+        "Applied <strong>Browzwear</strong> for remote fit approval with overseas buyers — eliminating <kpi>initial sample creation costs</kpi>.",
+        "Completed <strong>tech pack & technical drawing</strong> using Adobe Illustrator with <kpi>94% measurement accuracy</kpi> on the first sample.",
+        "Delivered complete files to <strong>20+ factories</strong> both domestically and internationally."
       ],
+    },
+     {
+      roleVI:    "Pattern Maker",
+      roleEN:    "Pattern Maker",
+      company:   "Logistik Unicorp Co., Ltd",
+      locationVI:"TP. Hồ Chí Minh · Kids, Uniform Canada's Company",
+      locationEN:"Ho Chi Minh City · Kids, Women's & Men's Export Apparel",
+      period:    "2017 – 2021",
+      bulletsVI: [
+        "Thiết kế rập cho <strong>cho các dòng work wear</strong> — đám ứng tính chất riêng biệt của sản phẩm cho từng công việc đặc thù",
+        "Rút ngắn thời gian hoàn thiện rập từ <kpi>5 ngày → 2 ngày</kpi> bằng chuẩn hóa quy trình fit comment và thư viện block approved nội bộ.",
+        "Ứng dụng <strong>PAD system</strong> xây dựng các block <kpi>tăng tốc độ xử lý công việc",
+           ],
+      bulletsEN: [
+        "Pattern design for <strong>workwear lines</strong> — ensuring product characteristics meet the specific requirements of each specialized job",
+        "Reduced pattern completion time from <kpi>5 days → 2 days</kpi> by standardizing the fit comment process and internal approved block library.",
+        "Applied <strong>PAD system</strong> to build blocks <kpi>increasing work processing speed</kpi>"
+      ]
     },
     {
       roleVI:    "Junior Pattern Maker / Design Assistant",
       roleEN:    "Junior Pattern Maker / Design Assistant",
-      company:   "Công ty C — điền tên thật",
-      locationVI:"TP. Hồ Chí Minh · Ready-to-Wear",
-      locationEN:"Ho Chi Minh City · Ready-to-Wear",
+      company:   "Grandmex Co.,Ltd",
+      locationVI:"TP. Hồ Chí Minh · Produce Jean, Jacket",
+      locationEN:"Ho Chi Minh City · Produce Jean, Jacket",
       period:    "2014 – 2017",
       bulletsVI: [
-        "Phát triển block và điều chỉnh rập trên <strong>Gerber AccuMark</strong> cho vải dệt thoi và dệt kim, xây dựng nền tảng CAD vững chắc.",
+        "Phát triển block và điều chỉnh rập trên <strong>Gerber AccuMark</strong> cho vải dệt thoi , dệt kim và hàng wash, xây dựng nền tảng CAD vững chắc.",
         "Tạo <strong>flat sketches & technical illustrations</strong> bằng Adobe Illustrator và Photoshop phục vụ presentations với buyer nội địa.",
-        "Phụ trách grading độc lập <strong>2 dòng sản phẩm</strong> sau 18 tháng — <kpi>6 tháng sớm hơn</kpi> lộ trình đề ra.",
+        "Phụ trách grading độc lập <strong>3 dòng sản phẩm</strong> trong 1 ngày — <kpi>80% thời gian rút ngắn</kpi> lộ trình đề ra.",
       ],
       bulletsEN: [
-        "Developed blocks and adapted patterns in <strong>Gerber AccuMark</strong> for woven and knit ready-to-wear, building a solid CAD foundation.",
-        "Created <strong>flat sketches & technical illustrations</strong> in Adobe Illustrator and Photoshop for domestic buyer presentations.",
-        "Took independent grading ownership of <strong>2 product lines</strong> at 18 months — <kpi>6 months ahead</kpi> of the planned timeline.",
+        "Developed blocks and adjusted patterns on <strong>Gerber AccuMark</strong> for woven, knit, and washed fabrics, building a solid CAD foundation.",
+        "Created <strong>flat sketches & technical illustrations</strong> using Adobe Illustrator and Photoshop for presentations with domestic buyers.",
+        "Independently handled grading for <strong>3 product lines</strong> in 1 day — <kpi>80% time reduction</kpi> against the planned timeline."
       ],
     },
   ],
@@ -191,22 +209,22 @@ const CONFIG = {
       resultEN:"→ 3 days → 6 hours for presentation prep",
     },
     {
-      badgeVI: "Pattern Engineering", badgeEN: "Pattern Engineering",
-      nameVI:  "Seamless & Bonding Block Library",
-      nameEN:  "Seamless & Bonding Block Library",
-      descVI:  "Xây dựng bộ block template chuẩn cho bonded và seamless outerwear — tài liệu nội bộ dùng chung cho toàn team R&D.",
-      descEN:  "Developed standardized block templates for bonded and seamless outerwear — adopted as internal R&D team standard.",
+      badgeVI: "Pattern Design", badgeEN: "Pattern Design",
+      nameVI:  "Veston & Dress Block Library",
+      nameEN:  "Veston & Dress Bloc Library",
+      descVI:  "Xây dựng bộ block chuẩn cho dòng suit cao cấp — tài liệu tiêu chuẩn nội bộ dùng chung cho toàn team pattern.",
+      descEN:  "Built a standard block library for the premium suit — internal standard documentation shared across the entire pattern team."
       resultVI:"→ −40% thời gian phát triển style mới",
       resultEN:"→ −40% new style development time",
     },
     {
       badgeVI: "Process Automation",  badgeEN: "Process Automation",
-      nameVI:  "AccuMark Grading Macros",
-      nameEN:  "AccuMark Grading Macros",
-      descVI:  "Viết macro Visual Basic tự động hóa thao tác grading lặp lại trong Gerber AccuMark — áp dụng toàn bộ workflow công ty.",
-      descEN:  "Built Visual Basic macros to automate repetitive grading operations in Gerber AccuMark — deployed across the full company workflow.",
-      resultVI:"→ 3 giờ → 45 phút grading/style",
-      resultEN:"→ 3 hours → 45 min grading/style",
+      nameVI:  "AccuMark Making Macros",
+      nameEN:  "AccuMark Making Macros",
+      descVI:  "Viết macro Visual Basic tự động hóa thao tác thiết kế trong Gerber AccuMark — áp dụng cho các hình thức MTM.",
+      descEN:  "Developed Visual Basic macros to automate design operations in Gerber AccuMark — applied for MTM (Made-to-Measure) styles.",
+      resultVI:"→ 3 giờ → 45 phút /style",
+      resultEN:"→ 3 hours → 45 min /style",
     },
   ],
 
@@ -217,7 +235,7 @@ const CONFIG = {
       degreeEN: "Diploma — Fashion Design & Garment Technology",
       schoolVI: "Trường Cao Đẳng Vinatex TP.HCM · Cơ sở đào tạo dệt may hàng đầu Việt Nam",
       schoolEN: "Vinatex College, Ho Chi Minh City · Vietnam's leading garment & textile institution",
-      year: "2014",
+      year: "2013",
     },
     {
       degreeVI: "CLO 3D — Advanced Garment Simulation",
@@ -238,7 +256,7 @@ const CONFIG = {
       degreeEN: "AI Image Generation for Fashion Design",
       schoolVI: "Midjourney / Stable Diffusion · Tự học · Ứng dụng vào workflow thực tế",
       schoolEN: "Midjourney / Stable Diffusion · Self-directed · Applied to production workflows",
-      year: "2023",
+      year: "2024",
     },
   ],
 
@@ -254,8 +272,8 @@ const CONFIG = {
     secEducation:  { vi: "Học vấn & Chứng chỉ", en: "Education & Certifications" },
     secTechSkills: { vi: "Kỹ năng kỹ thuật", en: "Technical Skills"    },
     atsNote:       {
-      vi: "<strong>Bản ATS</strong> — Tối ưu cho hệ thống lọc CV tự động. Dùng khi nộp qua portal tuyển dụng hoặc gửi file .docx / .pdf.",
-      en: "<strong>ATS Version</strong> — Optimized for automated applicant tracking systems. Use when applying via recruitment portals or submitting .docx / .pdf files.",
+      vi: "<strong>Bản ATS</strong> — Tối ưu cho hệ thống tự động.",
+      en: "<strong>ATS Version</strong> — Optimized for automated applicant tracking systems.",
     },
   },
 
