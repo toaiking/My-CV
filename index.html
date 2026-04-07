@@ -1081,7 +1081,7 @@ document.addEventListener('touchend',   e=>{
   const dx = e.changedTouches[0].clientX - tsX;
   if(Math.abs(dx)>48){ dx<0 ? lbGo(lbIdx+1,1) : lbGo(lbIdx-1,-1); }
 });
-/* ─── EXPORT TO PDF ─── */
+/* ─── EXPORT TO PDF — PHIÊN BẢN TỐI ƯU (Fix trang trắng + nét hơn) ─── */
 async function exportToPDF(mode = 'beautiful') {
   let element;
   let fileSuffix = '';
@@ -1094,41 +1094,66 @@ async function exportToPDF(mode = 'beautiful') {
   
   const year = new Date().getFullYear();
 
-  if (mode === 'beautiful') {
-    element = document.getElementById('hm');           // Phiên bản đẹp
-    fileSuffix = '_Beautiful_CV';
+  // === XỬ LÝ ATS (trang trắng) ===
+  if (mode === 'ats') {
+    element = document.getElementById('ats');
+    fileSuffix = '_ATS_Friendly';
+    
+    // Tạm thời hiển thị ATS để html2pdf render được
+    const hmPane = document.getElementById('hm');
+    const atsPane = document.getElementById('ats');
+    const originalHmDisplay = hmPane.style.display;
+    const originalAtsDisplay = atsPane.style.display;
+    
+    hmPane.style.display = 'none';
+    atsPane.style.display = 'block';
+
     opt = {
-      margin: [10, 10, 10, 10],
+      margin: [15, 18, 15, 18],
       filename: `${fullName}${fileSuffix}_${year}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
+      image: { type: 'jpeg', quality: 0.97 },
       html2canvas: { 
-        scale: 2.5,
+        scale: 2.0,                    // Giảm scale để text rõ ràng hơn
         useCORS: true,
         letterRendering: true,
         scrollX: 0,
         scrollY: 0,
-        ignoreElements: (el) => el.classList.contains('noise') || 
-                               el.classList.contains('grid-bg') || 
-                               el.classList.contains('blobs') ||
-                               el.classList.contains('wires') ||
-                               el.classList.contains('scanline')
+        width: element.scrollWidth,
+        height: element.scrollHeight
       },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
+
+    try {
+      await html2pdf().set(opt).from(element).save();
+    } finally {
+      // Khôi phục lại trạng thái tab
+      hmPane.style.display = originalHmDisplay;
+      atsPane.style.display = originalAtsDisplay;
+    }
   } 
-  else if (mode === 'ats') {
-    element = document.getElementById('ats');          // Phiên bản ATS
-    fileSuffix = '_ATS_Friendly';
+  // === XỬ LÝ BEAUTIFUL CV ===
+  else {
+    element = document.getElementById('hm');
+    fileSuffix = '_Beautiful_CV';
+    
     opt = {
-      margin: [12, 15, 12, 15],
+      margin: [10, 12, 10, 12],
       filename: `${fullName}${fileSuffix}_${year}.pdf`,
-      image: { type: 'jpeg', quality: 0.95 },
+      image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { 
-        scale: 2.0,
+        scale: 2.3,                    // Tăng nhẹ để nét hơn
         useCORS: true,
         letterRendering: true,
         scrollX: 0,
-        scrollY: 0
+        scrollY: 0,
+        ignoreElements: (el) => 
+          el.classList.contains('noise') || 
+          el.classList.contains('grid-bg') || 
+          el.classList.contains('blobs') ||
+          el.classList.contains('wires') ||
+          el.classList.contains('scanline') ||
+          el.classList.contains('lang-toggle')
       },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
@@ -1137,45 +1162,27 @@ async function exportToPDF(mode = 'beautiful') {
   // Loading effect
   const btn = event.currentTarget;
   const originalText = btn.textContent;
-  btn.textContent = '⋯ Đang xuất...';
-  btn.style.opacity = '0.65';
+  btn.textContent = mode === 'ats' ? '⋯ ATS PDF...' : '⋯ Beautiful CV...';
+  btn.style.opacity = '0.6';
   btn.style.pointerEvents = 'none';
 
   try {
-    await html2pdf().set(opt).from(element).save();
+    if (mode !== 'ats') {
+      await html2pdf().set(opt).from(element).save();
+    }
     const successMsg = LANG === 'vi' 
-      ? `✅ Đã xuất PDF ${mode === 'beautiful' ? 'Beautiful' : 'ATS'} thành công!` 
-      : `✅ Successfully exported ${mode === 'beautiful' ? 'Beautiful' : 'ATS'} PDF!`;
-    alert(successMsg);
+      ? `✅ Đã xuất ${mode === 'beautiful' ? 'Beautiful CV' : 'ATS PDF'} thành công!` 
+      : `✅ Exported ${mode === 'beautiful' ? 'Beautiful CV' : 'ATS PDF'} successfully!`;
+    setTimeout(() => alert(successMsg), 500);
   } catch (err) {
-    console.error('PDF export error:', err);
-    alert(LANG === 'vi' ? '❌ Xuất PDF thất bại. Vui lòng thử lại!' : '❌ Failed to export PDF. Please try again!');
+    console.error('PDF Error:', err);
+    alert(LANG === 'vi' ? '❌ Xuất PDF thất bại. Thử lại hoặc kiểm tra console (F12).' : '❌ Export failed. Check console (F12).');
   } finally {
     btn.textContent = originalText;
     btn.style.opacity = '1';
     btn.style.pointerEvents = 'auto';
   }
 }
-/* ─── INIT ─── */
-setLang(CONFIG.defaultLang);
-</script>
-
-<!-- LIGHTBOX -->
-<div class="lb" id="lb">
-  <button class="lb-close" id="lb-close">✕</button>
-  <div class="lb-stage">
-    <div class="lb-zone lb-zone-l" id="lb-zone-l"></div>
-    <div class="lb-img-wrap" id="lb-imgwrap"></div>
-    <div class="lb-zone lb-zone-r" id="lb-zone-r"></div>
-  </div>
-  <div class="lb-bar">
-    <div class="lb-dots" id="lb-dots"></div>
-    <div class="lb-meta">
-      <span class="lb-caption" id="lb-caption"></span>
-      <span class="lb-counter" id="lb-counter"></span>
-    </div>
-  </div>
-</div>
 <!-- THƯ VIỆN XUẤT PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
