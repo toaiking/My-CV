@@ -635,6 +635,118 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-he
 .foot{position:relative;z-index:5;text-align:center;padding:2.2rem;border-top:1px solid var(--border);font-family:'Space Mono',monospace;font-size:.53rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
 .foot::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:36%;height:1px;background:linear-gradient(90deg,transparent,var(--c1),var(--c2),transparent)}
 
+/* ── PDF EXPORT BUTTON ── */
+.pdf-btn{
+  margin-left:auto;
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:'Space Mono',monospace;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bg);background:var(--gold);
+  border:none;border-radius:5px;
+  padding:.45rem .9rem;cursor:pointer;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  white-space:nowrap;
+}
+.pdf-btn:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 4px 18px rgba(201,170,111,.35)}
+.pdf-btn:active{transform:translateY(0)}
+.pdf-btn.ats-style{background:var(--c1);color:#04050d}
+.pdf-btn.ats-style:hover{background:#8ae3ff;box-shadow:0 4px 18px rgba(94,207,255,.3)}
+.pdf-btn svg{width:11px;height:11px;fill:currentColor;flex-shrink:0}
+
+/* ── @MEDIA PRINT ── */
+@media print{
+  /* hide all interactive/decorative chrome */
+  .noise,.grid-bg,.blobs,.wires,.scanline,
+  .lang-toggle,.tab-bar,.lb,.foot,
+  .pdf-btn,.ps-num,.ps-cap,.ps-overlay,
+  .pcorner,.ats-note { display:none !important; }
+
+  html,body{ margin:0;padding:0;background:#fff !important;color:#111 !important; }
+  .site-header{ background:#fff !important;border-bottom:2px solid #e0d8c8 !important;
+    padding:1.2rem 1.8rem !important; }
+  .site-header::after{ display:none !important; }
+  .h-name{ color:#111 !important;font-size:2.6rem !important; }
+  .holo,.gold{ background:none !important;-webkit-text-fill-color:#b8935a !important;color:#b8935a !important; }
+  .h-title{ color:#666 !important; }
+  .chip{ border-color:#ccc !important;color:#666 !important; }
+  .chip-dot{ background:#888 !important; }
+  .contact-grid{ color:#555 !important; }
+  .contact-grid a{ color:#b8935a !important; }
+
+  /* pane visibility controlled by body class */
+  .pane{ display:none !important; }
+  body.print-hm #hm{ display:block !important; }
+  body.print-ats #ats{ display:block !important; }
+
+  /* metric boxes */
+  .mbox{ background:#f8f6f2 !important;border:1px solid #e0d8c8 !important;border-radius:8px !important;break-inside:avoid; }
+  .mnum{ color:#111 !important; }
+  .mnum.holo,.mnum.gold{ -webkit-text-fill-color:#b8935a !important; }
+  .mlbl{ color:#888 !important; }
+  .metrics{ gap:.6rem !important;margin-bottom:1.5rem !important; }
+
+  /* summary card */
+  .sumcard{ background:#f8f6f2 !important;border:1px solid #e0d8c8 !important;border-radius:8px !important;break-inside:avoid; }
+  .sumcard::before,.sumcard::after{ display:none !important; }
+  .sumtext{ color:#222 !important;font-size:1rem !important;line-height:1.75 !important; }
+  .sumtext strong{ color:#b8935a !important; }
+
+  /* portfolio — only show in HM, hide in ATS */
+  body.print-ats .sec:has(.pbento){ display:none !important; }
+  .pbento{ grid-template-rows:180px 130px !important;gap:.5rem !important; }
+  .ps{ border:1px solid #ddd !important;border-radius:6px !important; }
+
+  /* skills */
+  .sgrid{ gap:.6rem !important; }
+  .sgroup{ background:#f8f6f2 !important;border:1px solid #e0d8c8 !important;border-radius:6px !important;break-inside:avoid; }
+  .sgname{ color:#b8935a !important; }
+  .stag{ background:#eee !important;border-color:#ddd !important;color:#444 !important; }
+  .stag.h{ background:#f5ead8 !important;border-color:#d4a85a !important;color:#8a6320 !important; }
+
+  /* experience */
+  .eitem{ background:#f8f6f2 !important;border:1px solid #e0d8c8 !important;border-radius:6px !important;
+    break-inside:avoid;margin-bottom:.8rem !important;padding:1rem !important; }
+  .eitem::before{ display:none !important; }
+  .erole{ color:#111 !important; }
+  .eperiod{ color:#5a8fa8 !important;background:#e8f4fc !important;border-color:#bdd8eb !important; }
+  .eco{ color:#b8935a !important; }
+  .ebl li{ color:#333 !important; }
+  .ebl li::before{ color:#5a8fa8 !important; }
+  .ebl li strong{ color:#111 !important; }
+  .kpi{ background:#e8f4fc !important;color:#2a6882 !important;border-color:#bdd8eb !important; }
+  .kpig{ background:#f5ead8 !important;color:#8a6320 !important;border-color:#d4a85a !important; }
+
+  /* projects */
+  .pgrid{ grid-template-columns:repeat(2,1fr) !important;gap:.6rem !important; }
+  .pcard{ background:#f8f6f2 !important;border:1px solid #e0d8c8 !important;border-radius:6px !important;
+    break-inside:avoid;padding:1rem !important; }
+  .pcard::before{ display:none !important; }
+  .pbadge{ color:#b8935a !important;background:#f5ead8 !important;border-color:#d4a85a !important; }
+  .pname{ color:#111 !important; }
+  .pdesc{ color:#555 !important; }
+  .presult{ color:#2a7a4a !important; }
+
+  /* education */
+  .edrow{ border-bottom-color:#e0d8c8 !important; }
+  .eddeg{ color:#111 !important; }
+  .edsch{ color:#666 !important; }
+  .edyr{ color:#a0508a !important;background:#f5eaf2 !important;border-color:#d8b0cc !important; }
+
+  /* sec headers */
+  .sec-h{ color:#999 !important; }
+  .sec-h::after{ background:linear-gradient(90deg,#e0d8c8,transparent) !important; }
+
+  /* ATS plain text */
+  .ats-plain{ color:#222 !important; }
+  .ats-plain strong{ color:#b8935a !important; }
+
+  /* main padding */
+  .main{ padding:1rem 1.8rem 2rem !important; }
+  .sec{ margin-bottom:1.4rem !important; }
+
+  /* page settings */
+  @page{ margin:10mm 12mm; size:A4 portrait; }
+}
+
 /* RESPONSIVE — GLOBAL */
 @media(max-width:768px){
   .site-header{padding:2.5rem 1.4rem 2rem}
@@ -678,6 +790,15 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-he
     <button class="tb on" id="tab-hm"  onclick="setTab('hm',this)"></button>
     <div class="tsep"></div>
     <button class="tb"    id="tab-ats" onclick="setTab('ats',this)"></button>
+    <div class="tsep"></div>
+    <button class="pdf-btn" id="pdf-hm" onclick="exportPDF('hm')" title="Xuất PDF Portfolio CV">
+      <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V4h3v4H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
+      PDF Portfolio
+    </button>
+    <button class="pdf-btn ats-style" id="pdf-ats" onclick="exportPDF('ats')" title="Xuất PDF ATS Version" style="display:none;margin-left:.4rem">
+      <svg viewBox="0 0 16 16"><path d="M8 12l-4-4h2.5V4h3v4H12L8 12zm-5 2h10v1.5H3V14z"/></svg>
+      PDF ATS
+    </button>
   </div>
 </nav>
 
@@ -908,6 +1029,11 @@ function renderAll(){
   document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
   const activeId = document.querySelector('.pane.on').id;
   $('tab-'+activeId).classList.add('on');
+  // sync PDF buttons
+  const pdfHm  = $('pdf-hm');
+  const pdfAts = $('pdf-ats');
+  if(pdfHm)  pdfHm.style.display  = activeId==='hm'  ? 'inline-flex' : 'none';
+  if(pdfAts) pdfAts.style.display = activeId==='ats' ? 'inline-flex' : 'none';
 }
 
 /* ─── LANGUAGE SWITCH ─── */
@@ -924,7 +1050,24 @@ function setTab(id, btn){
   document.querySelectorAll('.tb').forEach(b=>b.classList.remove('on'));
   $(id).classList.add('on');
   btn.classList.add('on');
+  // toggle PDF buttons
+  const pdfHm  = $('pdf-hm');
+  const pdfAts = $('pdf-ats');
+  if(pdfHm)  pdfHm.style.display  = id==='hm'  ? 'inline-flex' : 'none';
+  if(pdfAts) pdfAts.style.display = id==='ats' ? 'inline-flex' : 'none';
   window.scrollTo({top:document.querySelector('.tab-bar').offsetTop-1,behavior:'smooth'});
+}
+
+/* ─── EXPORT PDF ─── */
+function exportPDF(type){
+  document.body.classList.remove('print-hm','print-ats');
+  document.body.classList.add('print-'+type);
+  // small delay so class applies before print dialog opens
+  setTimeout(()=>{
+    window.print();
+    // clean up after dialog closes (or user cancels)
+    setTimeout(()=> document.body.classList.remove('print-hm','print-ats'), 1500);
+  }, 120);
 }
 
 /* ─── 3D TILT ─── */
