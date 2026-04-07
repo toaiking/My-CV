@@ -1081,107 +1081,150 @@ document.addEventListener('touchend',   e=>{
   const dx = e.changedTouches[0].clientX - tsX;
   if(Math.abs(dx)>48){ dx<0 ? lbGo(lbIdx+1,1) : lbGo(lbIdx-1,-1); }
 });
-/* ─── EXPORT TO PDF — PHIÊN BẢN TỐI ƯU (Fix trang trắng + nét hơn) ─── */
+/* ─── EXPORT TO PDF — PHIÊN BẢN SẠCH & ĐỌC ĐƯỢC (ATS + Beautiful) ─── */
 async function exportToPDF(mode = 'beautiful') {
-  let element;
-  let fileSuffix = '';
-  let opt = {};
-
   const personal = CONFIG.personal;
   const fullName = LANG === 'vi' 
     ? `${personal.lastName} ${personal.firstName}`.replace(/[^a-zA-Z0-9]/g, '_')
     : `${personal.firstName}_${personal.lastName}`.replace(/[^a-zA-Z0-9]/g, '_');
   
   const year = new Date().getFullYear();
+  let elementToRender;
+  let fileName = `${fullName}_${mode === 'beautiful' ? 'Beautiful_CV' : 'ATS_Friendly'}_${year}.pdf`;
 
-  // === XỬ LÝ ATS (trang trắng) ===
-  if (mode === 'ats') {
-    element = document.getElementById('ats');
-    fileSuffix = '_ATS_Friendly';
-    
-    // Tạm thời hiển thị ATS để html2pdf render được
-    const hmPane = document.getElementById('hm');
-    const atsPane = document.getElementById('ats');
-    const originalHmDisplay = hmPane.style.display;
-    const originalAtsDisplay = atsPane.style.display;
-    
-    hmPane.style.display = 'none';
-    atsPane.style.display = 'block';
-
-    opt = {
-      margin: [15, 18, 15, 18],
-      filename: `${fullName}${fileSuffix}_${year}.pdf`,
-      image: { type: 'jpeg', quality: 0.97 },
-      html2canvas: { 
-        scale: 2.0,                    // Giảm scale để text rõ ràng hơn
-        useCORS: true,
-        letterRendering: true,
-        scrollX: 0,
-        scrollY: 0,
-        width: element.scrollWidth,
-        height: element.scrollHeight
-      },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    try {
-      await html2pdf().set(opt).from(element).save();
-    } finally {
-      // Khôi phục lại trạng thái tab
-      hmPane.style.display = originalHmDisplay;
-      atsPane.style.display = originalAtsDisplay;
-    }
-  } 
-  // === XỬ LÝ BEAUTIFUL CV ===
-  else {
-    element = document.getElementById('hm');
-    fileSuffix = '_Beautiful_CV';
-    
-    opt = {
-      margin: [10, 12, 10, 12],
-      filename: `${fullName}${fileSuffix}_${year}.pdf`,
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { 
-        scale: 2.3,                    // Tăng nhẹ để nét hơn
-        useCORS: true,
-        letterRendering: true,
-        scrollX: 0,
-        scrollY: 0,
-        ignoreElements: (el) => 
-          el.classList.contains('noise') || 
-          el.classList.contains('grid-bg') || 
-          el.classList.contains('blobs') ||
-          el.classList.contains('wires') ||
-          el.classList.contains('scanline') ||
-          el.classList.contains('lang-toggle')
-      },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-  }
-
-  // Loading effect
   const btn = event.currentTarget;
   const originalText = btn.textContent;
-  btn.textContent = mode === 'ats' ? '⋯ ATS PDF...' : '⋯ Beautiful CV...';
+  btn.textContent = '⋯ Đang tạo PDF...';
   btn.style.opacity = '0.6';
   btn.style.pointerEvents = 'none';
 
   try {
-    if (mode !== 'ats') {
-      await html2pdf().set(opt).from(element).save();
+    if (mode === 'ats') {
+      // Tạo HTML ATS sạch hoàn toàn (white background, text đen, font chuẩn)
+      const cleanHTML = generateCleanATSHTML();
+      elementToRender = document.createElement('div');
+      elementToRender.innerHTML = cleanHTML;
+      elementToRender.style.position = 'absolute';
+      elementToRender.style.left = '-9999px';
+      elementToRender.style.top = '0';
+      elementToRender.style.width = '210mm';
+      document.body.appendChild(elementToRender);
+
+      await new Promise(r => setTimeout(r, 400)); // đợi render
+    } else {
+      elementToRender = document.getElementById('hm');
     }
+
+    const opt = {
+      margin: mode === 'ats' ? [15, 18, 15, 18] : [10, 12, 10, 12],
+      filename: fileName,
+      image: { type: 'jpeg', quality: mode === 'ats' ? 0.98 : 0.98 },
+      html2canvas: { 
+        scale: mode === 'ats' ? 2.0 : 2.4,
+        useCORS: true,
+        letterRendering: true,
+        scrollX: 0,
+        scrollY: 0,
+        backgroundColor: mode === 'ats' ? '#ffffff' : null,
+        ignoreElements: (el) => el.classList.contains('noise') || 
+                               el.classList.contains('grid-bg') || 
+                               el.classList.contains('blobs') ||
+                               el.classList.contains('wires') ||
+                               el.classList.contains('scanline')
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    await html2pdf().set(opt).from(elementToRender).save();
+
     const successMsg = LANG === 'vi' 
-      ? `✅ Đã xuất ${mode === 'beautiful' ? 'Beautiful CV' : 'ATS PDF'} thành công!` 
+      ? `✅ Đã xuất ${mode === 'beautiful' ? 'Beautiful CV' : 'ATS PDF'} thành công!\nNội dung ATS giờ đã rõ ràng và searchable.`
       : `✅ Exported ${mode === 'beautiful' ? 'Beautiful CV' : 'ATS PDF'} successfully!`;
-    setTimeout(() => alert(successMsg), 500);
+
+    setTimeout(() => alert(successMsg), 600);
+
   } catch (err) {
     console.error('PDF Error:', err);
-    alert(LANG === 'vi' ? '❌ Xuất PDF thất bại. Thử lại hoặc kiểm tra console (F12).' : '❌ Export failed. Check console (F12).');
+    alert(LANG === 'vi' ? '❌ Lỗi xuất PDF. Mở F12 xem console.' : '❌ Export failed.');
   } finally {
+    if (mode === 'ats' && elementToRender && elementToRender.parentNode) {
+      elementToRender.parentNode.removeChild(elementToRender);
+    }
     btn.textContent = originalText;
     btn.style.opacity = '1';
     btn.style.pointerEvents = 'auto';
   }
+}
+
+/* ─── HÀM TẠO ATS PDF SẠCH (mới thêm) ─── */
+function generateCleanATSHTML() {
+  const isVI = LANG === 'vi';
+  let html = `
+    <style>
+      @page { margin: 0; }
+      body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.5; color: #000; background: #fff; padding: 20mm 15mm; }
+      h1 { font-size: 18pt; text-align: center; margin-bottom: 8px; }
+      h2 { font-size: 12pt; border-bottom: 2px solid #000; padding-bottom: 4px; margin-top: 20px; margin-bottom: 8px; }
+      .section { margin-bottom: 18px; }
+      ul { margin: 6px 0 10px 18px; padding: 0; }
+      li { margin-bottom: 6px; }
+      .kpi { background: #f0f0f0; padding: 2px 6px; border-radius: 3px; font-size: 10pt; }
+      .company { font-weight: bold; }
+    </style>
+    <h1>${CONFIG.personal.lastName} ${CONFIG.personal.firstName}</h1>
+    <p style="text-align:center; font-size:10pt; margin-bottom:20px;">
+      ${isVI ? CONFIG.personal.locationVI : CONFIG.personal.locationEN} | 
+      ${CONFIG.personal.email} | ${CONFIG.personal.phone}
+    </p>`;
+
+  // Summary
+  const sumText = L(CONFIG.summary).replace(/<strong>/g,'').replace(/<\/strong>/g,'');
+  html += `<div class="section"><h2>${isVI ? 'TÓM TẮT CHUYÊN MÔN' : 'PROFESSIONAL SUMMARY'}</h2><p>${sumText}</p></div>`;
+
+  // Technical Skills
+  html += `<div class="section"><h2>${isVI ? 'KỸ NĂNG CHUYÊN MÔN' : 'TECHNICAL SKILLS'}</h2>`;
+  CONFIG.skills.forEach(g => {
+    const gname = isVI ? g.nameVI : g.nameEN;
+    const tagList = g.tags.map(t => t.label).join(', ');
+    html += `<p><strong>${gname}:</strong> ${tagList}</p>`;
+  });
+  html += `</div>`;
+
+  // Experience
+  html += `<div class="section"><h2>${isVI ? 'KINH NGHIỆM LÀM VIỆC' : 'EXPERIENCE'}</h2>`;
+  CONFIG.experience.forEach(exp => {
+    const role = isVI ? exp.roleVI : exp.roleEN;
+    const loc  = isVI ? exp.locationVI : exp.locationEN;
+    const bullets = isVI ? exp.bulletsVI : exp.bulletsEN;
+    html += `<p><strong>${role}</strong><br>
+             <span class="company">${exp.company} — ${loc}</span> <span style="float:right;">${exp.period}</span></p><ul>`;
+    bullets.forEach(b => {
+      html += `<li>${parseBullet(b)}</li>`;
+    });
+    html += `</ul>`;
+  });
+  html += `</div>`;
+
+  // Projects
+  html += `<div class="section"><h2>${isVI ? 'DỰ ÁN NỔI BẬT' : 'KEY PROJECTS'}</h2><ul>`;
+  CONFIG.projects.forEach(p => {
+    const name = isVI ? p.nameVI : p.nameEN;
+    const desc = isVI ? p.descVI : p.descEN;
+    const result = isVI ? p.resultVI : p.resultEN;
+    html += `<li><strong>${name}</strong>: ${desc} <span class="kpi">${result}</span></li>`;
+  });
+  html += `</ul></div>`;
+
+  // Education
+  html += `<div class="section"><h2>${isVI ? 'HỌC VẤN & CHỨNG CHỈ' : 'EDUCATION & CERTIFICATIONS'}</h2>`;
+  CONFIG.education.forEach(e => {
+    const deg = isVI ? e.degreeVI : e.degreeEN;
+    const sch = isVI ? e.schoolVI : e.schoolEN;
+    html += `<p><strong>${deg}</strong><br>${sch} — ${e.year}</p>`;
+  });
+  html += `</div>`;
+
+  return html;
 }
 <!-- THƯ VIỆN XUẤT PDF -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
