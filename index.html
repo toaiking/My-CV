@@ -663,10 +663,28 @@ body{font-family:'Syne',sans-serif;background:var(--bg);color:var(--text);min-he
 <div class="wires"><div class="wire w1"></div><div class="wire w2"></div><div class="wire w3"></div><div class="wire w4"></div></div>
 <div class="scanline"></div>
 
-<!-- LANGUAGE TOGGLE -->
-<div class="lang-toggle">
+<!-- LANGUAGE TOGGLE + EXPORT PDF -->
+<div class="lang-toggle" style="display:flex; gap:0.4rem; align-items:center; flex-wrap:wrap;">
   <button class="lang-btn on" id="btn-vi" onclick="setLang('vi')">VI</button>
   <button class="lang-btn"    id="btn-en" onclick="setLang('en')">EN</button>
+  
+  <div style="margin-left:0.8rem; display:flex; gap:0.35rem;">
+    <button onclick="exportToPDF('beautiful')" 
+            style="font-family:'Space Mono',monospace; font-size:0.57rem; letter-spacing:0.1em; 
+                   padding:0.38rem 1rem; border-radius:6px; border:1px solid var(--gold); 
+                   background:rgba(201,170,111,0.09); color:var(--gold); cursor:pointer; 
+                   transition:all .25s; white-space:nowrap;">
+      ↓ Beautiful CV
+    </button>
+    
+    <button onclick="exportToPDF('ats')" 
+            style="font-family:'Space Mono',monospace; font-size:0.57rem; letter-spacing:0.1em; 
+                   padding:0.38rem 1rem; border-radius:6px; border:1px solid var(--c3); 
+                   background:rgba(109,255,160,0.08); color:var(--c3); cursor:pointer; 
+                   transition:all .25s; white-space:nowrap;">
+      ↓ ATS PDF
+    </button>
+  </div>
 </div>
 
 <!-- HEADER (rendered by JS) -->
@@ -1063,7 +1081,81 @@ document.addEventListener('touchend',   e=>{
   const dx = e.changedTouches[0].clientX - tsX;
   if(Math.abs(dx)>48){ dx<0 ? lbGo(lbIdx+1,1) : lbGo(lbIdx-1,-1); }
 });
+/* ─── EXPORT TO PDF ─── */
+async function exportToPDF(mode = 'beautiful') {
+  let element;
+  let fileSuffix = '';
+  let opt = {};
 
+  const personal = CONFIG.personal;
+  const fullName = LANG === 'vi' 
+    ? `${personal.lastName} ${personal.firstName}`.replace(/[^a-zA-Z0-9]/g, '_')
+    : `${personal.firstName}_${personal.lastName}`.replace(/[^a-zA-Z0-9]/g, '_');
+  
+  const year = new Date().getFullYear();
+
+  if (mode === 'beautiful') {
+    element = document.getElementById('hm');           // Phiên bản đẹp
+    fileSuffix = '_Beautiful_CV';
+    opt = {
+      margin: [10, 10, 10, 10],
+      filename: `${fullName}${fileSuffix}_${year}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { 
+        scale: 2.5,
+        useCORS: true,
+        letterRendering: true,
+        scrollX: 0,
+        scrollY: 0,
+        ignoreElements: (el) => el.classList.contains('noise') || 
+                               el.classList.contains('grid-bg') || 
+                               el.classList.contains('blobs') ||
+                               el.classList.contains('wires') ||
+                               el.classList.contains('scanline')
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+  } 
+  else if (mode === 'ats') {
+    element = document.getElementById('ats');          // Phiên bản ATS
+    fileSuffix = '_ATS_Friendly';
+    opt = {
+      margin: [12, 15, 12, 15],
+      filename: `${fullName}${fileSuffix}_${year}.pdf`,
+      image: { type: 'jpeg', quality: 0.95 },
+      html2canvas: { 
+        scale: 2.0,
+        useCORS: true,
+        letterRendering: true,
+        scrollX: 0,
+        scrollY: 0
+      },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+  }
+
+  // Loading effect
+  const btn = event.currentTarget;
+  const originalText = btn.textContent;
+  btn.textContent = '⋯ Đang xuất...';
+  btn.style.opacity = '0.65';
+  btn.style.pointerEvents = 'none';
+
+  try {
+    await html2pdf().set(opt).from(element).save();
+    const successMsg = LANG === 'vi' 
+      ? `✅ Đã xuất PDF ${mode === 'beautiful' ? 'Beautiful' : 'ATS'} thành công!` 
+      : `✅ Successfully exported ${mode === 'beautiful' ? 'Beautiful' : 'ATS'} PDF!`;
+    alert(successMsg);
+  } catch (err) {
+    console.error('PDF export error:', err);
+    alert(LANG === 'vi' ? '❌ Xuất PDF thất bại. Vui lòng thử lại!' : '❌ Failed to export PDF. Please try again!');
+  } finally {
+    btn.textContent = originalText;
+    btn.style.opacity = '1';
+    btn.style.pointerEvents = 'auto';
+  }
+}
 /* ─── INIT ─── */
 setLang(CONFIG.defaultLang);
 </script>
@@ -1084,5 +1176,8 @@ setLang(CONFIG.defaultLang);
     </div>
   </div>
 </div>
+<!-- THƯ VIỆN XUẤT PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </body>
 </html>
